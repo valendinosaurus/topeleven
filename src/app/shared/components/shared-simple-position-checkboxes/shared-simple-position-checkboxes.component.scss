@@ -1,0 +1,13 @@
+.shared-simple-position-checkboxes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__positions {
+    margin-right: 20px;
+  }
+}
+
+.position-checkbox label {
+  margin-bottom: 0;
+}
