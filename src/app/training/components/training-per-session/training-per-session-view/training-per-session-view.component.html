@@ -1,0 +1,62 @@
+<div class="training-per-session-view tile">
+  <div 
+    class="training-per-session-view__header"
+    [ngClass]="getHeaderClass()"  
+  >
+    {{ combinedObject.session.name }}
+  </div>
+
+  <div class="training-per-session-view__content">
+
+    <h3 class="training-per-session-view__sub-header">
+      Trained Skills
+    </h3>
+    <div class="training-per-session-view__trained-skills">
+      <ng-container *ngFor="let skill of combinedObject.skills">
+        <div class="training-per-session-view__trained-skill skill">
+          {{ getShortName(skill.name) }}
+        </div>
+      </ng-container>
+    </div>
+
+    <h3 class="training-per-session-view__sub-header">
+      Position efficiency
+    </h3>
+      
+    <ng-container *ngFor="let efficiency of combinedObject.efficiencyPerPosition">
+      <div 
+        *ngIf="shouldDisplayPosition(efficiency.id)"
+        class="training-per-session-view__row"  
+      >
+        <div class="training-per-session-view__column-position">
+          
+          <div 
+            class="position-panel"
+            [ngClass]="getPositionLabelClass(efficiency.id)"
+          >
+            {{ efficiency.name }}
+          </div>
+        </div>
+
+        <div 
+          class="training-per-session-view__column-efficiency"
+          [ngClass]="getEfficiencyClass(efficiency.efficiency)"
+        >
+          {{ efficiency.efficiency * 100 }}%
+        </div>
+
+        <div class="training-per-session-view__column-skills">
+          <div class="training-per-session-view__affected-skills">
+            <ng-container *ngFor="let a of efficiency.trainedWhiteSkills">
+              <div class="training-per-session-view__affected-skill skill">
+                {{ getShortName(a.name) }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+
+  </div>
+</div>

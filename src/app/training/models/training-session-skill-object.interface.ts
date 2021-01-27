@@ -6,10 +6,10 @@ export interface TrainingSessionSkillObject {
   session: TrainingSession;
   skills: Skill[];
   skillsString: string;
-  effectivenessPerPosition: PositionEffectiveness[];
+  efficiencyPerPosition: PositionEffectiveness[];
 }
 
 export interface PositionEffectiveness extends Position {
-  effectiveness: number;
+  efficiency: number;
   trainedWhiteSkills: Skill[];
 }

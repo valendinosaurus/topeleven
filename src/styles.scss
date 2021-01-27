@@ -100,3 +100,12 @@ body {
   font-size: 32px !important;
   font-weight: 500 !important;
 }
+
+.skill {
+  background: rgba($color-secondary, 0.5);
+  color: $color-primary;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 4px;
+  padding: 2px;
+}

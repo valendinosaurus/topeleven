@@ -2,14 +2,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input } from '@angular/core';
 import { PositionService } from 'src/app/core/position.service';
-import { TrainingSessionSkillObject } from '../../models/training-session-skill-object.interface';
+import { TrainingSessionSkillObject } from '../../../models/training-session-skill-object.interface';
 
 @Component({
-  selector: 'app-training-training-view',
-  templateUrl: './training-training-view.component.html',
-  styleUrls: ['./training-training-view.component.scss']
+  selector: 'app-training-per-session-view',
+  templateUrl: './training-per-session-view.component.html',
+  styleUrls: ['./training-per-session-view.component.scss']
 })
-export class TrainingViewComponent {
+export class TrainingPerSessionViewComponent {
 
   @Input() combinedObject: TrainingSessionSkillObject;
   @Input() selectedPositions: {id: number; checked: boolean}[];
@@ -20,9 +20,9 @@ export class TrainingViewComponent {
 
   getHeaderClass(): {[key: string]: boolean} {
     return {
-      'training-training-view__header--attack': this.isAttackSession(),
-      'training-training-view__header--defense': this.isDefenseSession(),
-      'training-training-view__header--fitnesse-mental': this.isFitnesseMentalSession()
+      'training-per-session-view__header--attack': this.isAttackSession(),
+      'training-per-session-view__header--defense': this.isDefenseSession(),
+      'training-per-session-view__header--fitnesse-mental': this.isFitnesseMentalSession()
     };
   }
 
@@ -56,6 +56,15 @@ export class TrainingViewComponent {
 
   shouldDisplayPosition(id: number): boolean {
     return this.selectedPositions && this.selectedPositions.find(p => p.id === id).checked;
+  }
+
+  getEfficiencyClass(efficiency: number): {[key: string]: boolean} {
+    return {
+      'training-per-session-view__column-efficiency--top': efficiency >= 0.8,
+      'training-per-session-view__column-efficiency--good': efficiency < 0.8 && efficiency >= 0.6,
+      'training-per-session-view__column-efficiency--medium': efficiency < 0.6 && efficiency >= 0.3,
+      'training-per-session-view__column-efficiency--bad': efficiency < 0.3
+    };
   }
 
 }
