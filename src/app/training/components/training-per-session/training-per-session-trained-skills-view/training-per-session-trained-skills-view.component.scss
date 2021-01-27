@@ -1,0 +1,13 @@
+.training-per-session-trained-skills-view {
+  &__header {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 12px;
+  }
+
+  &__trained-skills {
+    display: flex;
+  }
+}

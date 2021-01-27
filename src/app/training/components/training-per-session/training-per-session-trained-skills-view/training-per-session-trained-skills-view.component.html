@@ -1,0 +1,12 @@
+<div class="training-per-session-trained-skills-view">
+  <h3 class="training-per-session-trained-skills-view__header">
+    Trained Skills
+  </h3>
+  <div class="training-per-session-trained-skills-view__trained-skills">
+    <ng-container *ngFor="let skill of skills">
+      <div class="training-per-session-view__trained-skill skill">
+        {{ getShortName(skill.name) }}
+      </div>
+    </ng-container>
+  </div>
+</div>
