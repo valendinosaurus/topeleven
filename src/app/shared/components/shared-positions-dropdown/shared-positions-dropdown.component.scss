@@ -1,0 +1,17 @@
+.new-player {
+  position: relative;
+
+  &__main-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__main-position-label {
+    width: 110px;
+    margin: 0;
+    margin-right: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}

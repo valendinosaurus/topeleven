@@ -1,0 +1,28 @@
+@import '~src/global-styles/colors.scss';
+
+.player-panel-header {
+  padding: 12px;
+  height: 44px;
+
+  .mat-form-field {
+    transform: translateY(-20px);
+  }
+
+  &__name-input,
+  &__label {
+    font-size: 20px;
+    width: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__background-dark {
+    background-color: $color-primary; 
+    color: $color-secondary;
+  }
+
+  &__background-edit {
+    color: $color-primary; 
+  }
+}

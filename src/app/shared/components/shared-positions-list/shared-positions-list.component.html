@@ -1,0 +1,10 @@
+<div class="positions-list">
+  <ng-container *ngFor="let position of positions">
+    <div
+      class="position-panel"
+      [ngClass]="getPositionLabelClass(position.id)"
+    >
+      {{ position.name }}
+  </div>
+  </ng-container>
+</div>

@@ -1,0 +1,44 @@
+<div class="shared-nav__main">
+  <h1 class="shared-nav__title">
+    TopEleven Profibruders
+  </h1>
+  <a [routerLink]="['/my-players']">
+    <div class="shared-nav__item">
+      My Players
+    </div>
+  </a>
+  <a [routerLink]="['/my-team']">
+    <div class="shared-nav__item">
+      My Team
+    </div>
+  </a>
+  <!-- a [routerLink]="['/white-skills']">
+    <div class="shared-nav__item">
+      White Skills
+    </div>
+  </a -->
+  <a [routerLink]="['/training']">
+    <div class="shared-nav__item">
+      Training
+    </div>
+  </a>
+  <a 
+    *ngIf="!(loggedIn$ | async)"
+    href="#"
+    (click)="login()"
+  >
+    <div class="shared-nav__item">
+      Login
+    </div>
+  </a>
+  <a 
+    *ngIf="(loggedIn$ | async)"
+    href="#"
+    (click)="logout()"
+  >
+    <div class="shared-nav__item shared-nav__item-logout">
+      {{ (user$ | async)?.nickname }} <br>
+      Logout
+    </div>
+  </a>
+</div>

@@ -1,0 +1,52 @@
+<div class="player tile">
+  
+  <div class="player__buttons">
+    <app-player-panel-buttons
+      [editMode]="editMode"
+      (editClicked)="setEditMode(true)"
+      (closeClicked)="setEditMode(false)"
+      (deleteClicked)="deletePlayer()"
+      (saveClicked)="updatePlayer()"
+    ></app-player-panel-buttons>
+  </div>
+
+  <app-player-panel-header
+    [player]="player"
+    [editMode]="editMode"
+    (playerNameCleared)="player.name = ''"
+  ></app-player-panel-header>
+  
+  <app-player-panel-stats
+    [player]="player"
+  ></app-player-panel-stats>
+
+  <app-player-panel-positions
+    [player]="player"
+    [allPositions]="allPositions"
+    [editMode]="editMode"
+    (positionsChanged)="setCheckedPositions($event)"
+    (mainPositionChanged)="setMainPosition($event)"
+  ></app-player-panel-positions>
+
+  <p 
+    class="player-panel-label pl-16"
+    (click)="toggleSkills()" 
+  >
+    Skills
+    <mat-icon 
+      class="expand-icon"
+      [class.mat-icon-rotated]="!skillsToggled"
+    >
+      expand_more
+    </mat-icon>
+  </p>
+  <div 
+    class="player__skills"
+    [class.toggled]="skillsToggled"
+  >
+    <app-player-panel-all-skills
+      [player]="player"
+      [editMode]="editMode"
+    ></app-player-panel-all-skills>
+  </div>
+</div>

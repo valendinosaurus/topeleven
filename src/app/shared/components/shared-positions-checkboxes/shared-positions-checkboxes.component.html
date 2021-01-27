@@ -1,0 +1,34 @@
+<div class="positions">
+  <p
+    *ngIf="displayLabel" 
+    class="positions__label"
+  >
+    Positions
+  </p>
+
+  <div class="positions__field-wrapper">
+    <div class="positions__field-wrapper-opacity"></div>
+    <div class="positions__positions-wrapper">
+      <ng-container *ngFor="let position of allPositions">
+        <div class="position-checkbox">
+          <input 
+            type="checkbox"
+            value="{{ position.id }}"
+            name="{{ position.id }}{{ player.id }}" 
+            id="{{ position.id }}{{ player.id }}" 
+            [(ngModel)]="positionsChecked[position.id - 1].checked"
+            (change)="checkPosition(position.id, $event.target.checked)"
+          />
+          <label 
+            for="{{ position.id }}{{ player.id }}"
+            class="position-panel"
+            [ngClass]="getPositionLabelClass(position.id)"
+          >
+            {{ position.name }}
+          </label>
+        </div>
+        <br *ngIf="[1, 4, 5, 8, 11].includes(position.id)"/>
+      </ng-container>
+    </div>
+  </div>
+</div>

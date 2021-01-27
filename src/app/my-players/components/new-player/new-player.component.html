@@ -1,0 +1,52 @@
+<div class="new-player" *ngIf="formReady">
+  <h2 class="new-player__title main">
+    New Player
+  </h2>
+
+  <form
+    novalidate
+    class="new-player__form"
+    (ngSubmit)="createNewPlayer()"
+  >
+    <div class="new-player__name">
+
+      <mat-form-field>
+        <input 
+          matInput
+          class="new-player__name-input"
+          type="text"
+          name="name"
+          placeholder="PLAYER NAME"
+          [(ngModel)]="player.name"
+        />
+        <button 
+          *ngIf="player.name"
+          mat-button  
+          matSuffix 
+          mat-icon-button 
+          aria-label="Clear" 
+          (click)="player.name = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <app-shared-positions-checkboxes
+      [player]="player"
+      [allPositions]="allPositions"
+      [displayLabel]="false"
+      (positionChecked)="checkPosition($event)"
+    ></app-shared-positions-checkboxes>
+
+    <button 
+      class="new-player__create-button"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
+      Create
+    </button>
+
+  </form>
+</div>

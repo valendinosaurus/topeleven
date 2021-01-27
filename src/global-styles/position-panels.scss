@@ -1,0 +1,76 @@
+@import './colors.scss';
+
+.position-checkbox {
+
+  display: inline-block;
+  
+  input {
+    display: none;
+  }
+
+  input:checked + label {
+    font-weight: bold;
+    border-color: black;
+    border-width: 2px;
+  }
+
+  label {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.position-select {
+  border: solid 1px #ddd;
+}
+
+.mat-option {
+  height: 28px !important;
+  line-height: 20px !important;
+  margin: 2px;
+
+  span {
+    height: 28px !important;
+    line-height: 20px !important;
+
+    * {
+      height: 28px !important;
+      line-height: 20px !important;
+    }
+  }
+}
+
+.position-panel {
+  border-radius: 20%;
+  border-style: solid;
+  border-width: 2px;
+  padding: 2px 4px;
+  max-width: 38px;
+  text-align: center;
+  font-weight: 500;
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.gk-panel {
+  border-color: $color-gk-border;
+  background: $color-gk-inner;
+}
+
+.d-panel {
+  border-color: $color-d-border;
+  background: $color-d-inner;
+}
+
+.m-panel {
+  border-color: $color-m-border;
+  background: $color-m-inner;
+}
+
+.s-panel {
+  border-color: $color-s-border;
+  background: $color-s-inner;
+}

@@ -1,0 +1,29 @@
+<div 
+  class="skill"
+  [ngClass]="getSkillClass()"
+>
+  <label 
+    class="skill__label"
+    for="{{skill.name}}"
+  >
+    {{ getShortName() }}
+  </label>
+
+  <input 
+    *ngIf="editMode; else simpleLabel"
+    class="skill__input custom-input"
+    type="{{type}}" 
+    [(ngModel)]="skill.value" 
+    name="{{skill.name}}"
+    pattern="[0-9]*"
+    id="{{skill.name}}"
+  />
+
+  <ng-template #simpleLabel>
+    <p class="skill__value">
+      {{ skill.value }}
+    </p>
+  </ng-template>
+</div>
+
+

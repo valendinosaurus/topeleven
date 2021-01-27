@@ -1,0 +1,11 @@
+@import '~src/global-styles/colors.scss';
+
+.player-panel-buttons {
+  &__icon-edit-mode {
+    color: $color-primary;
+  }
+
+  &__icon-normal-mode {
+    color: $color-secondary;
+  }
+}

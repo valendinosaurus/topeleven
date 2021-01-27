@@ -1,0 +1,24 @@
+<div class="my-team-player-panel">
+
+  <div class="row">
+    <div class="col-6 my-team-player-panel__column">
+      <p class="my-team-player-panel__text">
+        {{ player.name }}
+      </p>
+    </div>
+    <div class="col-2 my-team-player-panel__column">
+      <div 
+        class="position-panel"
+        [ngClass]="getPositionLabelClass(player.mainPosition)"
+      >
+        {{ getMainPositionName() }}
+      </div>
+    </div>
+    <div class="col-4 my-team-player-panel__column my-team-player-panel__column-percent">
+      <p class="my-team-player-panel__text">
+        {{ player.getMainPositionWhiteSkillValue() }} %
+      </p>
+    </div>
+  </div>
+
+</div>

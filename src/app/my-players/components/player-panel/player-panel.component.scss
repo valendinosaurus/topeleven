@@ -1,0 +1,28 @@
+.player {
+  width: 100%;
+  position: relative;
+
+  &__buttons {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    display: flex;
+  }
+
+  &__skills {
+    height: 0;
+    transition: height 200ms ease-out;
+
+    &.toggled {
+      height: 166px;
+    }
+  }
+
+  .mat-icon {
+    transition: all 200ms ease-out;
+  }
+
+  .mat-icon-rotated{
+    transform: rotate(180deg);    
+  }
+}

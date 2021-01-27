@@ -1,0 +1,33 @@
+<div 
+  class="player-panel-header"
+  [ngClass]="getBackgroundClass()"  
+>
+  <mat-form-field
+    *ngIf="editMode; else simpleLabel"
+  >
+    <input 
+      matInput
+      class="player-panel-header__name-input"
+      type="text"
+      name="name"
+      [(ngModel)]="player.name"
+      floatLabel='never'
+    />
+    <button 
+      *ngIf="player.name"
+      mat-button  
+      matSuffix 
+      mat-icon-button 
+      aria-label="Clear" 
+      (click)="clearName()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <ng-template #simpleLabel>
+    <p class="player-panel-header__label">
+      {{ player.name }}
+    </p>
+  </ng-template>
+</div>

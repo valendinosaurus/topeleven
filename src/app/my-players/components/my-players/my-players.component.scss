@@ -1,0 +1,32 @@
+.my-team {
+  &__new-player {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    
+    @media (max-width: 500px) {
+      position: fixed;
+      z-index: 11;
+      bottom: 12px;
+      top: auto;
+    }
+  }
+
+  &__no-players-yet {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ff4081;
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+  }
+}

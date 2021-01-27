@@ -1,0 +1,10 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  padding: 8px;
+  
+  @media (max-width: 500px) {
+    padding: 2px;
+  }
+}

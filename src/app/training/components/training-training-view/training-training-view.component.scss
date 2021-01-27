@@ -1,0 +1,41 @@
+@import '~src/global-styles/colors.scss';
+
+.training-training-view {
+  width: 100%;
+
+  &__header {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 12px;
+    height: 44px;
+    background-color: #1B1B1B;
+
+    &--attack {
+      color: $color-attack; 
+    }
+
+    &--defense {
+      color: $color-defense; 
+    }
+
+    &--fitnesse-mental {
+      color: $color-fitnesse-mental; 
+    }
+  }
+
+  &__content {
+    padding: 24px;
+  }
+
+  &__trained-skills,
+  &__affected-skills {
+    display: flex;
+  }
+
+  &__trained-skill,
+  &__affected-skill {
+    margin-right: 12px;
+  }
+}
