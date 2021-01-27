@@ -1,0 +1,15 @@
+.player-panel-all-skills {
+  &__row {
+    @media (max-width: 500px) {
+      margin-right: -5px;
+      margin-left: -5px;
+    }
+  }
+
+  &__skills-column {
+    @media (max-width: 500px) {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+}

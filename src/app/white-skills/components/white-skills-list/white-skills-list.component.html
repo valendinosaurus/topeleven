@@ -1,0 +1,21 @@
+<p>white-skills-list works!</p>
+
+<ng-container *ngFor="let skill of allSkills$ | async">
+  {{ skill | json }}
+</ng-container>
+
+<br>
+<br>
+<br>
+
+<ng-container *ngFor="let positions of allPositions$ | async">
+  {{ positions | json }}
+</ng-container>
+
+<br>
+<br>
+<br>
+
+<ng-container *ngFor="let phws of allPositionHasWhiteSkills$ | async">
+  {{ phws | json }}
+</ng-container>

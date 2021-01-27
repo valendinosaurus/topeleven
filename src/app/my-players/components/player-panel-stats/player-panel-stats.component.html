@@ -1,0 +1,28 @@
+<div class="player-panel-stats">
+  <div class="row">
+    <div class="col-4 player-panel-stats__effective">
+      <p class="player-panel-label">
+        EFFECTIVE %
+      </p>
+      <h2>
+        {{ player.getMainPositionWhiteSkillValue() }} %
+      </h2>
+    </div>
+    <div class="col-4">
+      <p class="player-panel-label">
+        WHITE SKILL %
+      </p>  
+      <h2>
+        {{ player.getWhiteSkillValue() }} %
+      </h2>
+    </div>
+    <div class="col-4">
+      <p class="player-panel-label">
+        TOP ELEVEN %
+      </p>
+      <h2>
+        {{ player.getTopElevenValue() }} %
+      </h2>
+    </div>
+  </div>
+</div>

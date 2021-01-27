@@ -1,0 +1,39 @@
+<div class="my-team-drag-drop-list-stats">
+  <div class="my-team-drag-drop-list-stat">
+    <h2>
+      Starting
+    </h2>
+    <h1>
+      {{ getStartingValue() }}%
+    </h1>
+  </div>
+  
+  <div class="my-team-drag-drop-list-stat my-team-drag-drop-list-stat--overall">
+    <h2>
+      Overall
+    </h2>
+    <h1>
+      {{ getOverallValue() }}%
+    </h1>
+  </div>
+  
+  <button 
+    class="my-team__new-player-hint"
+    (click)="nextSeason()"
+    mat-raised-button
+  >
+    NEXT SAISON
+  </button>
+</div>
+
+<div class="my-team-drag-drop-list" cdkDropList (cdkDropListDropped)="drop($event)">   
+  <ng-container *ngFor="let player of players">
+    <app-my-team-player-panel 
+      class="drag-drop-list-item"
+      [player]="player"
+      [allPositions]="allPositions"
+      cdkDrag
+    >
+    </app-my-team-player-panel>
+  </ng-container>
+</div>

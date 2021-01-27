@@ -1,0 +1,51 @@
+@import '~src/global-styles/colors.scss';
+
+.shared-nav {
+  &__main {
+    background-color: $color-primary;
+    height: 60px;
+    width: 100%; 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 500px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      justify-content: flex-start;
+    }
+  }
+
+  &__title {
+    color: white;
+    border-right: solid 1px $color-secondary;
+    padding-right: 20px;
+    margin: 0;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+  
+  &__item {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-secondary;
+    margin-left: 20px;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &__item-logout {
+    color: #ffb2b2 ;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+}

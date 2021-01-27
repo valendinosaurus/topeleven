@@ -1,0 +1,48 @@
+<div class="row player-panel-all-skills__row">
+  <div 
+    *ngIf="player.isGoalkeeper()"
+    class="col-4 player-panel-all-skills__skills-column"
+  >
+    <app-player-panel-skill-group 
+      [skills]="player.getGoalkeeperSkills().slice(0, 5)"
+      [editMode]="editMode"
+    ></app-player-panel-skill-group>
+  </div>
+  
+  <div 
+    *ngIf="player.isGoalkeeper()"
+    class="col-4 player-panel-all-skills__skills-column"
+  >
+    <app-player-panel-skill-group 
+      [skills]="player.getGoalkeeperSkills().slice(5, 10)"
+      [editMode]="editMode"
+    ></app-player-panel-skill-group>
+  </div>
+
+  <div 
+    *ngIf="!player.isGoalkeeper()"
+    class="col-4 player-panel-all-skills__skills-column"
+  >
+    <app-player-panel-skill-group 
+      [skills]="player.getFieldPlayerSkills().slice(0, 5)"
+      [editMode]="editMode"
+    ></app-player-panel-skill-group>
+  </div>
+
+  <div 
+    *ngIf="!player.isGoalkeeper()"
+    class="col-4 player-panel-all-skills__skills-column"
+  >
+    <app-player-panel-skill-group 
+      [skills]="player.getFieldPlayerSkills().slice(5, 10)"
+      [editMode]="editMode"
+    ></app-player-panel-skill-group>
+  </div>
+
+  <div class="col-4 player-panel-all-skills__skills-column">
+    <app-player-panel-skill-group
+      [skills]="player.getFitnesseSkills()"
+      [editMode]="editMode"
+    ></app-player-panel-skill-group>
+  </div>
+</div>

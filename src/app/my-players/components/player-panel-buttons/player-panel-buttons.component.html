@@ -1,0 +1,50 @@
+<div [ngClass]="getIconClass()">
+  <button 
+    *ngIf="editMode"
+    mat-button  
+    matSuffix 
+    mat-icon-button 
+    aria-label="Clear" 
+    (click)="onClickDelete()"
+  >
+    <mat-icon class="player-panel-buttons__icon">
+      delete
+    </mat-icon>
+  </button>
+  <button 
+    *ngIf="!editMode"
+    mat-button  
+    matSuffix 
+    mat-icon-button 
+    aria-label="Clear" 
+    (click)="onClickEdit()"
+  >
+    <mat-icon class="player-panel-buttons__icon">
+      edit
+    </mat-icon>
+  </button>
+  <button 
+    *ngIf="editMode"
+    mat-button  
+    matSuffix 
+    mat-icon-button 
+    aria-label="Clear" 
+    (click)="onClickSave()"
+  >
+    <mat-icon class="player-panel-buttons__icon">
+      done
+    </mat-icon>
+  </button>
+  <button 
+    *ngIf="editMode"
+    mat-button  
+    matSuffix 
+    mat-icon-button 
+    aria-label="Clear" 
+    (click)="onClickClose()"
+  >
+    <mat-icon class="player-panel-buttons__icon">
+      cancel
+    </mat-icon>
+  </button>
+</div>

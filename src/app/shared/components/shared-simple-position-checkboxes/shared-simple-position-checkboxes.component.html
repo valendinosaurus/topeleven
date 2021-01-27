@@ -1,0 +1,35 @@
+<ng-container *ngFor="let position of allPositions">
+  <div class="position-checkbox">
+    <input 
+      type="checkbox"
+      value="{{ position.id }}"
+      name="{{ position.id }}" 
+      id="{{ position.id }}" 
+      [(ngModel)]="positionsChecked[position.id - 1].checked"
+      (change)="checkPosition(position.id, $event.target.checked)"
+    />
+    <label 
+      for="{{ position.id }}"
+      class="position-panel"
+      [ngClass]="getPositionLabelClass(position.id)"
+    >
+      {{ position.name }}
+    </label>
+  </div>
+</ng-container>
+
+<div class="position-checkbox">
+  <button
+    (click)="checkAll()"
+  >
+    All
+  </button>
+</div>
+
+<div class="position-checkbox">
+  <button
+    (click)="uncheckAll()"
+  >
+    None
+  </button>
+</div>

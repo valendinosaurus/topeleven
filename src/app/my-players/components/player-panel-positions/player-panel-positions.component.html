@@ -1,0 +1,41 @@
+<div class="player-panel-positions">
+  <ng-container *ngIf="formReady">
+    <ng-container *ngIf="editMode; else simplePositions">
+      <app-shared-positions-checkboxes
+        [player]="player"
+        [allPositions]="allPositions"
+        (positionChecked)="checkPosition($event)"
+      ></app-shared-positions-checkboxes>
+
+      <app-shared-positions-dropdown
+        [player]="player"
+        [allPositions]="allPositions"
+      ></app-shared-positions-dropdown>
+    </ng-container>
+
+    <ng-template #simplePositions>
+      <div class="row">
+        <div class="col-4">
+          <p class="player-panel-label">
+            Main Position
+          </p>
+
+          <div 
+            class="position-panel"
+            [ngClass]="getPositionLabelClass(player.mainPosition)"
+          >
+            {{ getMainPositionName() }}
+          </div>
+        </div>
+        <div class="col-8">
+          <p class="player-panel-label">
+            Learned Positions
+          </p>
+          <app-shared-positions-list
+            [positions]="getPlayerPositions()"
+          ></app-shared-positions-list>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

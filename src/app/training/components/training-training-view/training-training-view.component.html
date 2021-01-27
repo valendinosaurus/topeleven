@@ -1,0 +1,57 @@
+<div class="training-training-view tile">
+  <div 
+    class="training-training-view__header"
+    [ngClass]="getHeaderClass()"  
+  >
+    {{ combinedObject.session.name }}
+  </div>
+
+  <div class="training-training-view__content">
+
+    <h3>
+      Trained Skills
+    </h3>
+    <div class="training-training-view__trained-skills">
+      <ng-container *ngFor="let skill of combinedObject.skills">
+        <p class="training-training-view__trained-skill">
+          {{ getShortName(skill.name) }}
+        </p>
+      </ng-container>
+    </div>
+
+    <h3>Position efficiency</h3>
+      
+    <ng-container *ngFor="let eff of combinedObject.effectivenessPerPosition">
+      <div 
+        *ngIf="shouldDisplayPosition(eff.id)"
+        class="row"  
+      >
+        <div class="col-md-3">
+          
+          <div 
+            class="position-panel"
+            [ngClass]="getPositionLabelClass(eff.id)"
+          >
+            {{ eff.name }}
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          {{ eff.effectiveness * 100 }}%
+        </div>
+
+        <div class="col-md-6">
+          <div class="training-training-view__affected-skills">
+            <ng-container *ngFor="let a of eff.trainedWhiteSkills">
+              <p class="training-training-view__affected-skill">
+                {{ getShortName(a.name) }}
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+
+  </div>
+</div>

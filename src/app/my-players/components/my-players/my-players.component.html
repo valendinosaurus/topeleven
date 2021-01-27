@@ -1,0 +1,57 @@
+<div class="my-team" *ngIf="sortedPlayers$ | async as sortedPlayers">
+  <div class="row">
+    <ng-container *ngFor="let player of sortedPlayers">
+      <div class="col-12 col-lg-6 col-xl-4">
+        <app-player-panel
+          [userId]="userId"
+          [player]="player"
+          [allPositions]="allPositions$ | async"
+          (playerDeleted)="removePlayer($event)"
+        ></app-player-panel>
+      </div>
+    </ng-container>
+  </div>
+
+  <div 
+    *ngIf="sortedPlayers.length === 0"
+    class="my-team__no-players-yet"
+  >
+    <mat-icon>
+      feedback
+    </mat-icon>
+    <h1>
+      Looks a little bit empty here!
+    </h1>
+    <h2>
+      Create your first player:
+    </h2>
+    <button 
+      class="my-team__new-player-hint"
+      (click)="openNewPlayerModal()"
+      mat-raised-button
+    >
+      <mat-icon>
+        person_add
+      </mat-icon>
+    </button>
+  </div>
+  
+  <ng-template #newPlayerModal>
+    <app-new-player
+      [userId]="userId"
+      [allPositions]="allPositions$ | async"
+      (playerCreated)="playerCreated()"
+    ></app-new-player> 
+  </ng-template>
+  
+  <button 
+    class="my-team__new-player"
+    (click)="openNewPlayerModal()"
+    mat-mini-fab
+  >
+    <mat-icon>
+      person_add
+    </mat-icon>
+  </button>
+</div>
+

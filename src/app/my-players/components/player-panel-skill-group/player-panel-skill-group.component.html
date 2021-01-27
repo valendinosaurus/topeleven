@@ -1,0 +1,9 @@
+<div class="skills">
+  <ng-container *ngFor="let skill of skills">
+    <app-single-skill-field
+      [skill]="skill"
+      [type]="'text'"
+      [editMode]="editMode"
+    ></app-single-skill-field>
+  </ng-container>
+</div>

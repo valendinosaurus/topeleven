@@ -1,0 +1,36 @@
+
+    <div 
+    class="new-player__main-position"
+  >
+    <p class="new-player__main-position-label">
+      Main Position
+    </p>
+
+    <div 
+      class="position-panel"
+      [ngClass]="getPositionLabelClass(player.mainPosition)"
+    >
+      {{ getMainPositionName() }}
+    </div>
+
+    <div class="new-player__main-position-select-wrapper">
+      <mat-select
+        *ngIf="player.mainPosition !== 0"
+        class="position-select"
+        name="mainPosition"
+        [(ngModel)]="player.mainPosition"
+      >
+        <mat-option
+          *ngFor="let position of getAllowedPositions()"
+          [value]="position.id" 
+        >
+          <div 
+            class="position-panel"
+            [ngClass]="getPositionLabelClass(position.id)"
+          >
+            {{ position.name }}
+          </div>
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
