@@ -1,10 +1,10 @@
-<div class="training-training-list">
+<div class="training-per-session-list">
 
   <h1>
     Efficiency per training session
   </h1>
 
-  <div class="training-training-list__filter">
+  <div class="training-per-session-list__filter">
     <app-shared-simple-position-checkboxes
       *ngIf="allPositions$ | async as positions"
       [allPositions]="positions"
@@ -12,13 +12,13 @@
   ></app-shared-simple-position-checkboxes>
   </div>
 
-  <div class="row">
+  <div class="row training-per-session-list__row">
     <ng-container *ngFor="let item of combinedObjects$ | async">
       <div class="col-12 col-lg-6 col-xl-4">
-        <app-training-training-view 
+        <app-training-per-session-view 
           [combinedObject]="item"
           [selectedPositions]="selectedPositions$ | async"
-        ></app-training-training-view>
+        ></app-training-per-session-view>
       </div>
     </ng-container>
   </div>

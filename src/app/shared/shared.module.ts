@@ -17,6 +17,7 @@ import { SharedPositionsListComponent } from './components/shared-positions-list
 import {
   SharedSimplePositionCheckboxesComponent
 } from './components/shared-simple-position-checkboxes/shared-simple-position-checkboxes.component';
+import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple-skill-checkboxes/shared-simple-skill-checkboxes.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {
     SharedPositionsDropdownComponent,
     SharedPositionsListComponent,
     SharedNavComponent,
-    SharedSimplePositionCheckboxesComponent
+    SharedSimplePositionCheckboxesComponent,
+    SharedSimpleSkillCheckboxesComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,8 @@ import {
     AppRoutingModule,
     SharedNavComponent,
     MatTabsModule,
-    SharedSimplePositionCheckboxesComponent
+    SharedSimplePositionCheckboxesComponent,
+    SharedSimpleSkillCheckboxesComponent
   ]
 })
 export class SharedModule { }

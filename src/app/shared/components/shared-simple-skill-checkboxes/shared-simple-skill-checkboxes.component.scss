@@ -1,0 +1,33 @@
+@import '~src/global-styles/colors.scss';
+
+.shared-simple-skill-checkboxes {
+  &__skills {
+    display: flex;
+  }
+
+  &__skill-panel {
+    margin: 0;
+  }
+
+  &__skill-checkbox {
+    padding: 4px;
+    display: inline-block;
+    
+    input {
+      display: none;
+    }
+
+    input:checked + label {
+      background: $color-primary;
+      color: $color-secondary
+    }
+
+    label {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

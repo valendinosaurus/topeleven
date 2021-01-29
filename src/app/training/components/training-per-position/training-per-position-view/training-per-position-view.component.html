@@ -1,0 +1,25 @@
+<div class="training-per-position-view tile">
+  <div 
+    class="training-per-position-view__header"
+    [ngClass]="getHeaderClass()"  
+  >
+  <ng-container *ngFor="let position of positionTrainingObject.positions">
+    <div 
+      class="position-panel"
+      [ngClass]="getPositionLabelClass(position.id)"
+    >
+      {{ position.name }}
+    </div>
+  </ng-container>
+  </div>
+
+  <div class="training-per-position-view__content">
+    <ng-container *ngFor="let session of positionTrainingObject.efficiencyPerTrainingSession">
+      <app-training-per-position-session-view
+        [trainingSession]="session"
+      ></app-training-per-position-session-view>
+    </ng-container>
+  </div>
+
+
+</div>

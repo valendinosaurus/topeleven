@@ -1,0 +1,21 @@
+<div class="training-per-session-view tile">
+  <div 
+    class="training-per-session-view__header"
+    [ngClass]="getHeaderClass()"  
+  >
+    {{ combinedObject.session.name }}
+  </div>
+
+  <div class="training-per-session-view__content">
+
+    <app-training-per-session-trained-skills-view
+      [skills]="combinedObject.skills"
+    ></app-training-per-session-trained-skills-view>
+
+    <app-training-per-session-position-efficiency-view
+      [efficiencyPerPosition]="combinedObject.efficiencyPerPosition"
+      [selectedPositions]="selectedPositions"
+    ></app-training-per-session-position-efficiency-view>
+
+  </div>
+</div>

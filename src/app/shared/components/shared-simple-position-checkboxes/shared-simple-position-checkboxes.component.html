@@ -1,35 +1,44 @@
-<ng-container *ngFor="let position of allPositions">
-  <div class="position-checkbox">
-    <input 
-      type="checkbox"
-      value="{{ position.id }}"
-      name="{{ position.id }}" 
-      id="{{ position.id }}" 
-      [(ngModel)]="positionsChecked[position.id - 1].checked"
-      (change)="checkPosition(position.id, $event.target.checked)"
-    />
-    <label 
-      for="{{ position.id }}"
-      class="position-panel"
-      [ngClass]="getPositionLabelClass(position.id)"
-    >
-      {{ position.name }}
-    </label>
+<div class="shared-simple-position-checkboxes">
+  <div class="shared-simple-position-checkboxes__positions">
+    <ng-container *ngFor="let position of allPositions">
+      <div class="position-checkbox">
+        <input 
+          type="checkbox"
+          value="{{ position.id }}"
+          name="{{ position.id }}" 
+          id="{{ position.id }}" 
+          [(ngModel)]="positionsChecked[position.id - 1].checked"
+          (change)="checkPosition(position.id, $event.target.checked)"
+        />
+        <label 
+          for="{{ position.id }}"
+          class="position-panel"
+          [ngClass]="getPositionLabelClass(position.id)"
+        >
+          {{ position.name }}
+        </label>
+      </div>
+    </ng-container>
   </div>
-</ng-container>
 
-<div class="position-checkbox">
-  <button
-    (click)="checkAll()"
-  >
-    All
-  </button>
-</div>
+  <div class="position-checkbox">
+    <button
+      mat-raised-button
+      color="primary"
+      class="mr-1"
+      (click)="checkAll()"
+    >
+      All
+    </button>
+  </div>
 
-<div class="position-checkbox">
-  <button
-    (click)="uncheckAll()"
-  >
-    None
-  </button>
+  <div class="position-checkbox">
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="uncheckAll()"
+    >
+      None
+    </button>
+  </div>
 </div>

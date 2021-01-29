@@ -1,0 +1,22 @@
+<div class="shared-simple-skill-checkboxes">
+  <div class="shared-simple-skill-checkboxes__skills">
+    <ng-container *ngFor="let skill of allSkills">
+      <div class="shared-simple-skill-checkboxes__skill-checkbox skill">
+        <input 
+          type="checkbox"
+          value="{{ skill.id }}"
+          name="{{ skill.id }}" 
+          id="{{ skill.id }}" 
+          [(ngModel)]="skillsChecked[skill.id - 1].checked"
+          (change)="checkSkill(skill.id, $event.target.checked)"
+        />
+        <label 
+          for="{{ skill.id }}"
+          class="shared-simple-skill-checkboxes__skill-panel"
+        >
+          {{ getShortName(skill) }}
+        </label>
+      </div>
+    </ng-container>
+  </div>
+</div>

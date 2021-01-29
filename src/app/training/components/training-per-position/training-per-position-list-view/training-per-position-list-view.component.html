@@ -1,0 +1,28 @@
+<div class="training-per-position-list">
+
+  <h1>
+    Efficiency per position
+  </h1>
+
+  <div class="training-per-position-list__filter">
+    <app-shared-simple-position-checkboxes
+      *ngIf="allPositions$ | async as positions"
+      [allPositions]="positions"
+      (positionsSelected)="filterByPositions($event)"
+  ></app-shared-simple-position-checkboxes>
+  </div>
+
+  <div class="row training-per-position-list__row">
+    <ng-container *ngFor="let item of combinedObjects$ | async">
+      <ng-container *ngIf="shouldDisplayElement(item, selectedPositions$ | async)">
+        <div class="col-12 col-lg-6 col-xl-4">
+          <app-training-per-position-view 
+            [positionTrainingObject]="item"
+          ></app-training-per-position-view>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  
+</div>

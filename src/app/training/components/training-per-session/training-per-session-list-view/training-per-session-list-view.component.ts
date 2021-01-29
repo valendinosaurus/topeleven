@@ -6,14 +6,14 @@ import { TrainingAPIService } from 'src/app/core/training-api.service';
 import { Position } from 'src/app/shared/models/position.interface';
 import { Skill } from 'src/app/shared/models/skill.interface';
 import { TrainingSession } from 'src/app/shared/models/training-session.interface';
-import { PositionEffectiveness, TrainingSessionSkillObject } from '../../models/training-session-skill-object.interface';
+import { PositionEffectiveness, TrainingSessionSkillObject } from '../../../models/training-session-skill-object.interface';
 
 @Component({
-  selector: 'app-training-training-list-view',
-  templateUrl: './training-training-list-view.component.html',
-  styleUrls: ['./training-training-list-view.component.scss']
+  selector: 'app-training-per-session-list-view',
+  templateUrl: './training-per-session-list-view.component.html',
+  styleUrls: ['./training-per-session-list-view.component.scss']
 })
-export class TrainingTrainingListViewComponent implements OnInit {
+export class TrainingPerSessionListViewComponent implements OnInit {
   @Input() allSkills$: Observable<Skill[]>;
   @Input() allPositions$: Observable<Position[]>;
 
@@ -41,8 +41,6 @@ export class TrainingTrainingListViewComponent implements OnInit {
             })
           );
 
-          console.log('next ');
-          console.log(mapped);
           this.selectedPositions$.next(mapped);
         }
       ),
@@ -53,7 +51,7 @@ export class TrainingTrainingListViewComponent implements OnInit {
               session,
               skillsString: session.skillsString,
               skills: skills.filter(skill => session.skills.includes(+skill.id)),
-              effectivenessPerPosition: this.getEffectivenessPerPosition(
+              efficiencyPerPosition: this.getEffectivenessPerPosition(
                 session,
                 positions,
                 skills
@@ -72,7 +70,7 @@ export class TrainingTrainingListViewComponent implements OnInit {
       (position: Position) => position.whiteSkills.some(x => trainedSkills.includes(x))
     );
 
-    const effectivenessObject: PositionEffectiveness[] = [];
+    const efficiencyObject: PositionEffectiveness[] = [];
 
     affectedPositions.forEach(
       (position: Position) => {
@@ -84,16 +82,16 @@ export class TrainingTrainingListViewComponent implements OnInit {
 
         const numberOfTrainedWhiteSkills = trainedWhiteSkills.length;
 
-        effectivenessObject.push({
+        efficiencyObject.push({
           ...position,
           trainedWhiteSkills: allSkills.filter(s => trainedWhiteSkills.includes(+s.id)),
-          effectiveness: numberOfTrainedWhiteSkills / numberOfTrainedSkills
+          efficiency: numberOfTrainedWhiteSkills / numberOfTrainedSkills
         });
       }
     );
 
-    return effectivenessObject.sort(
-      (a: PositionEffectiveness, b: PositionEffectiveness) => b.effectiveness - a.effectiveness
+    return efficiencyObject.sort(
+      (a: PositionEffectiveness, b: PositionEffectiveness) => b.efficiency - a.efficiency
     );
   }
 

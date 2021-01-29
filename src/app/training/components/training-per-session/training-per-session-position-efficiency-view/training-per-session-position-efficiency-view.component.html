@@ -1,0 +1,39 @@
+<div class="training-per-session-position-efficiency-view">
+  <h3 class="training-per-session-position-efficiency-view__header">
+    Position efficiency
+  </h3>
+    
+  <ng-container *ngFor="let efficiency of efficiencyPerPosition">
+    <div 
+      *ngIf="shouldDisplayPosition(efficiency.id)"
+      class="training-per-session-position-efficiency-view__row"  
+    >
+      <div class="training-per-session-position-efficiency-view__column-position">
+        
+        <div 
+          class="position-panel"
+          [ngClass]="getPositionLabelClass(efficiency.id)"
+        >
+          {{ efficiency.name }}
+        </div>
+      </div>
+
+      <div 
+        class="training-per-session-position-efficiency-view__column-efficiency"
+        [ngClass]="getEfficiencyClass(efficiency.efficiency)"
+      >
+        {{ efficiency.efficiency * 100 }}%
+      </div>
+
+      <div class="training-per-session-position-efficiency-view__column-skills">
+        <div class="training-per-session-position-efficiency-view__affected-skills">
+          <ng-container *ngFor="let a of efficiency.trainedWhiteSkills">
+            <div class="training-per-session-position-efficiency-view__affected-skill skill">
+              {{ getShortName(a.name) }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

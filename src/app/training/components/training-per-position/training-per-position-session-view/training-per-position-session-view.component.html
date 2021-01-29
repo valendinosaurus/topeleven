@@ -1,0 +1,33 @@
+<div 
+  class="training-per-position-session-view"
+  [ngClass]="getPanelClass()"
+>
+  <h3 class="training-per-position-session-view__header">
+    {{ trainingSession.name }}
+  </h3>
+  
+  <div class="training-per-position-session-view__row">
+    <div class="training-per-position-session-view__column-skills">
+      <div class="training-per-position-session-view__affected-skills">
+        <ng-container *ngFor="let skill of trainingSession.affectedWhiteSkills">
+          <div class="skill">
+            {{ getShortName(skill.name) }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div 
+      class="training-per-position-session-view__column-efficiency"
+      [ngClass]="getEfficiencyClass(trainingSession.efficiency)"
+    >
+      {{ trainingSession.efficiency }}%
+    </div>
+    <div 
+      class="training-per-position-session-view__column-others"
+      [ngClass]="getOthersClass(trainingSession.skills.length - trainingSession.affectedWhiteSkills.length)"
+    >
+      (+{{ trainingSession.skills.length - trainingSession.affectedWhiteSkills.length }})
+    </div>
+  </div>
+
+</div>
