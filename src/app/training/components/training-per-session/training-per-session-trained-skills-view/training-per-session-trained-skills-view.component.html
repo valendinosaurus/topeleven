@@ -4,7 +4,10 @@
   </h3>
   <div class="training-per-session-trained-skills-view__trained-skills">
     <ng-container *ngFor="let skill of skills">
-      <div class="training-per-session-view__trained-skill skill">
+      <div 
+        class="training-per-session-view__trained-skill skill"
+        [ngClass]="getSkillClass(skill.id)"
+      >
         {{ getShortName(skill.name) }}
       </div>
     </ng-container>

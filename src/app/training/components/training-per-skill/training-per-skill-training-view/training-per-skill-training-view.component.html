@@ -1,0 +1,17 @@
+<div class="training-per-skill-training-view tile">
+  <div 
+    class="training-per-skill-training-view__header"
+    [ngClass]="getHeaderClass()"  
+  >
+    {{ combinedObject.t.name }}
+  </div>
+
+  <div class="training-per-skill-training-view__content">
+
+    <app-training-per-session-trained-skills-view
+      [skills]="combinedObject.s"
+      [selectedSkills]="selectedSkills"
+    ></app-training-per-session-trained-skills-view>
+
+  </div>
+</div>

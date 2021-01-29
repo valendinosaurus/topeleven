@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
+import { combineLatest, Observable, ReplaySubject } from 'rxjs';
+import { debounceTime, map, tap } from 'rxjs/operators';
+import { TrainingAPIService } from 'src/app/core/training-api.service';
+import { Skill } from 'src/app/shared/models/skill.interface';
+import { TrainingSession } from 'src/app/shared/models/training-session.interface';
 
 @Component({
   selector: 'app-training-per-skill-list-view',
@@ -6,10 +12,64 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./training-per-skill-list-view.component.scss']
 })
 export class TrainingPerSkillListViewComponent implements OnInit {
+  @Input() allSkills$: Observable<Skill[]>;
 
-  constructor() { }
+  allTrainingSessions$: Observable<TrainingSession[]>;
+  filteredTrainingSessions$: Observable<{t: TrainingSession; s: Skill[]}[]>;
+  selectedSkills$ = new ReplaySubject<{id: number; checked: boolean}[]>();
+
+  constructor(
+    private trainingAPIService: TrainingAPIService
+  ) { }
 
   ngOnInit(): void {
+    this.allTrainingSessions$ = this.trainingAPIService.getTrainingSessions();
+
+    this.allSkills$.pipe(
+      tap(
+        (skills: Skill[]) => {
+          const mapped = skills.map(
+            (skill: Skill) => ({
+              id: skill.id,
+              checked: true
+            })
+          );
+
+          this.selectedSkills$.next(mapped);
+        }
+      )
+    );
+
+    this.filteredTrainingSessions$ = combineLatest([
+      this.allTrainingSessions$,
+      this.selectedSkills$,
+      this.allSkills$
+    ]).pipe(
+      debounceTime(600),
+      map(
+        ([sessions, selectedSkills, allSkills]: [TrainingSession[], {id: number; checked: boolean}[], Skill[]]) => {
+          const sss = sessions.filter(
+            (session: TrainingSession) =>
+              selectedSkills
+                .filter(s => s.checked)
+                .map(s => s.id)
+                .some(s => session.skills.includes(+s))
+          );
+
+          return sss.map(
+            (session: TrainingSession) => ({
+              t: session,
+              s: allSkills.filter(s => session.skills.includes(+s.id))
+            })
+          );
+        }
+      )
+    );
+
+  }
+
+  filterBySkill(skills: {id: number; checked: boolean}[]): void {
+    this.selectedSkills$.next(skills);
   }
 
 }

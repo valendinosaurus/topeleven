@@ -1,3 +1,5 @@
+@import '~src/global-styles/colors.scss';
+
 .training-per-session-trained-skills-view {
   &__header {
     font-size: 12px;
@@ -9,5 +11,12 @@
 
   &__trained-skills {
     display: flex;
+  }
+
+  &__trained-skill {
+    &--selected {
+      background: $color-primary;
+      color: $color-secondary
+    }
   }
 }

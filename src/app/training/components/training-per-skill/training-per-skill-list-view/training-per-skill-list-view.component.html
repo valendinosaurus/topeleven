@@ -1,1 +1,24 @@
-<p>training-per-skill-list-view works!</p>
+<div class="training-per-skill-list">
+
+  <h1>
+    Trained skill
+  </h1>
+
+  <app-shared-simple-skill-checkboxes
+    *ngIf="allSkills$ | async as skills"
+    [allSkills]="skills"
+    (skillSelected)="filterBySkill($event)"
+  ></app-shared-simple-skill-checkboxes>
+
+  <div class="row">
+    <ng-container *ngFor="let session of filteredTrainingSessions$ | async">
+      <div class="col-12 col-lg-6 col-xl-4">
+        <app-training-per-skill-training-view
+          [combinedObject]="session"
+          [selectedSkills]="selectedSkills$ | async"
+        ></app-training-per-skill-training-view>
+      </div>
+    </ng-container>
+  </div>
+
+</div>

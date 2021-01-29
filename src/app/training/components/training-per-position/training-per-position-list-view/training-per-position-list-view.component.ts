@@ -99,8 +99,6 @@ export class TrainingPerPositionListViewComponent implements OnInit {
           )
         );
 
-        console.log(allSkills.filter(s => trainedWhiteSkills.includes(+s.id)));
-
         const numberOfTrainedWhiteSkills = trainedWhiteSkills.length;
         const efficiency = Math.ceil(numberOfTrainedWhiteSkills / numberOfWhiteSkillsToTrain * 100);
 
@@ -117,6 +115,17 @@ export class TrainingPerPositionListViewComponent implements OnInit {
     return efficiencyObject.sort(
       (a: TrainingEffectiveness, b: TrainingEffectiveness) => b.efficiency - a.efficiency
     );
+  }
+
+  shouldDisplayElement(element: PositionTrainingObject, selectedPositions: {id: number; checked: boolean}[]): boolean {
+    return element.positions.map(p => p.id).some(
+      id => selectedPositions.filter(e => e.checked).map(e => e.id).includes(id)
+    );
+  }
+
+  filterByPositions(positions: {id: number; checked: boolean}[]): void {
+    console.log(positions);
+    this.selectedPositions$.next(positions);
   }
 
 }

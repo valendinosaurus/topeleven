@@ -38,6 +38,7 @@ export class SharedSimplePositionCheckboxesComponent implements OnInit {
       e.checked = true;
       return e;
     });
+
     this.positionsSelected.emit(this.positionsChecked);
   }
 
@@ -46,6 +47,7 @@ export class SharedSimplePositionCheckboxesComponent implements OnInit {
       e.checked = false;
       return e;
     });
+
     this.positionsSelected.emit(this.positionsChecked);
   }
 
