@@ -1,9 +1,11 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
 import { PlayerAPIService } from 'src/app/core/player-api.service';
 import { PositionAPIService } from 'src/app/core/position-api.service';
+import { SnapshotService } from 'src/app/core/snapshot.service';
 import { TeamAPIService } from 'src/app/core/team-api.service';
+import { HbServerResponse } from 'src/app/shared/models/hb-server-response.interface';
 import { Player } from 'src/app/shared/models/player.class';
 import { PositionHasWhiteSkill } from 'src/app/shared/models/position-has-white-skill.interface';
 import { Position } from 'src/app/shared/models/position.interface';
@@ -26,7 +28,8 @@ export class MyTeamComponent implements OnChanges {
   constructor(
     private positionAPIService: PositionAPIService,
     private playerAPIService: PlayerAPIService,
-    private teamAPIService: TeamAPIService
+    private teamAPIService: TeamAPIService,
+    private snapshotService: SnapshotService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -43,13 +46,13 @@ export class MyTeamComponent implements OnChanges {
           shareReplay()
         );
 
-        this.fetchPlayers();
+        this.fetchPlayers(false);
       }
 
     }
   }
 
-  fetchPlayers(): void {
+  fetchPlayers(afterNextSeason: boolean): void {
     this.allPlayers$ = this.allPositions$.pipe(
       switchMap(
         allPositions => this.playerAPIService.getPlayers(this.userId, allPositions)
@@ -65,6 +68,7 @@ export class MyTeamComponent implements OnChanges {
       map(
         ([players, order]: [Player[], TeamOrder]) => {
           const sortedPlayers: Player[] = [];
+          const allPlayerIds: number[] = players.map(p => p.id);
 
           if (order === undefined) {
             return players;
@@ -76,8 +80,25 @@ export class MyTeamComponent implements OnChanges {
             )
           );
 
+          const pushedPlayerIds: number[] = sortedPlayers.map(p => p.id);
+          const remainingPlayers: number[] = allPlayerIds.filter((n: number) => !pushedPlayerIds.includes(n));
+
+          sortedPlayers.push(
+            ...players.filter(p => remainingPlayers.includes(p.id))
+          );
+
           return sortedPlayers;
         }
+      ),
+      switchMap(
+        (players: Player[]) =>
+          afterNextSeason
+            ? this.snapshotService.createSnapshotFromPlayers(players, this.userId).pipe(
+              switchMap(
+                (response: HbServerResponse) => of(players)
+              )
+            )
+            : of(players)
       )
     );
 

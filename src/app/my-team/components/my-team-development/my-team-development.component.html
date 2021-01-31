@@ -1,0 +1,13 @@
+<div style="width: 100%, height: 80vh">
+  <canvas *ngIf="graphData"
+    baseChart
+    [datasets]="graphData.chartData"
+    [labels]="graphData.chartLabels"
+    [options]="graphData.chartOptions"
+    [colors]="graphData.chartColors"
+    [legend]="graphData.chartLegend"
+    [chartType]="graphData.chartType"
+    [plugins]="graphData.chartPlugins"
+  >
+  </canvas>
+</div>

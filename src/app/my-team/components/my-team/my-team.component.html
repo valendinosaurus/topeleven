@@ -1,7 +1,11 @@
-<app-my-team-drag-drop-list
+<app-my-team-drag-drop-list *ngIf="sortedPlayers$ | async as players"
   [userId]="userId"
-  [players]="sortedPlayers$ | async"
+  [players]="players"
   [allPositions]="allPositions$ | async"
-  (seasonChanged)="fetchPlayers()"
+  (seasonChanged)="fetchPlayers(true)"
 ></app-my-team-drag-drop-list>
+
+<mat-spinner *ngIf="!sortedPlayers$"></mat-spinner>
+
+
 

@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedNavComponent } from './components/shared-nav/shared-nav.component';
 import { SharedPositionsCheckboxesComponent } from './components/shared-positions-checkboxes/shared-positions-checkboxes.component';
@@ -39,7 +41,9 @@ import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple
     MatButtonModule,
     NgbModalModule,
     AppRoutingModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule,
+    ChartsModule,
   ],
   exports: [
     CommonModule,
@@ -56,9 +60,11 @@ import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple
     SharedPositionsListComponent,
     AppRoutingModule,
     SharedNavComponent,
+    MatProgressSpinnerModule,
     MatTabsModule,
     SharedSimplePositionCheckboxesComponent,
-    SharedSimpleSkillCheckboxesComponent
+    SharedSimpleSkillCheckboxesComponent,
+    ChartsModule,
   ]
 })
 export class SharedModule { }

@@ -1,7 +1,7 @@
 <div class="my-team-drag-drop-list-stats">
   <div class="my-team-drag-drop-list-stat">
     <h2>
-      Starting
+      Starting White Skill %
     </h2>
     <h1>
       {{ getStartingValue() }}%
@@ -10,7 +10,7 @@
   
   <div class="my-team-drag-drop-list-stat my-team-drag-drop-list-stat--overall">
     <h2>
-      Overall
+      Overall White Skill %
     </h2>
     <h1>
       {{ getOverallValue() }}%
@@ -24,6 +24,11 @@
   >
     NEXT SAISON
   </button>
+
+  <app-my-team-new-snapshot-button *ngIf="userId"
+    [allPlayers]="players"
+    [userId]="userId"
+  ></app-my-team-new-snapshot-button>
 </div>
 
 <div class="my-team-drag-drop-list" cdkDropList (cdkDropListDropped)="drop($event)">   
