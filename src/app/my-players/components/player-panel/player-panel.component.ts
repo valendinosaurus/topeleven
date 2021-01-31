@@ -4,6 +4,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { PlayerAPIService } from 'src/app/core/player-api.service';
+import { ToastrService } from 'src/app/core/toastr.service';
+import { ErrorObject } from 'src/app/shared/models/error-object';
+import { HbServerResponse } from 'src/app/shared/models/hb-server-response.interface';
 import { Player } from 'src/app/shared/models/player.class';
 import { Position } from '../../../shared/models/position.interface';
 
@@ -27,11 +30,14 @@ export class PlayerPanelComponent {
   skillsToggled = true;
 
   constructor(
-    private playerAPIService: PlayerAPIService
+    private playerAPIService: PlayerAPIService,
+    private toastrService: ToastrService
   ) {}
 
   updatePlayer(): void {
     this.editMode = false;
+
+    let response: HbServerResponse;
 
     this.playerAPIService.updatePlayer({
       ...this.player,
@@ -62,7 +68,17 @@ export class PlayerPanelComponent {
       creativity: this.player.creativity.value
     }).pipe(
       take(1)
-    ).subscribe();
+    ).subscribe({
+      next: (res: HbServerResponse) => response = res,
+      error: (error: ErrorObject) => this.toastrService.error('Error while updating player'),
+      complete: () => {
+        if (response.status === 'update_player_success') {
+          this.toastrService.success('Player updated');
+        } else {
+          this.toastrService.error('Error while updating player');
+        }
+      }
+    });
   }
 
   setCheckedPositions(positions: number[]): void {
@@ -78,14 +94,26 @@ export class PlayerPanelComponent {
   }
 
   deletePlayer(): void {
+    let response: HbServerResponse;
+
     this.playerAPIService.deletePlayer(
       this.player.id,
       this.userId
     ).pipe(
       take(1)
-    ).subscribe(() => {
-      this.playerDeleted.emit(this.player.id);
-    });
+    ).subscribe({
+      next: (res: HbServerResponse) => response = res,
+      error: (error: ErrorObject) => this.toastrService.error('Error while creating player'),
+      complete: () => {
+        if (response.status === 'delete_player_success') {
+          this.toastrService.success('Player deleted');
+          this.playerDeleted.emit(this.player.id);
+        } else {
+          this.toastrService.error('Error while creating player');
+        }
+      }
+    }
+    );
   }
 
   toggleSkills(): void {

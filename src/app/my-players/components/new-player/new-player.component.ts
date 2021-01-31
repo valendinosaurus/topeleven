@@ -3,6 +3,9 @@ import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core
 import { take } from 'rxjs/operators';
 import { PlayerAPIService } from 'src/app/core/player-api.service';
 import { PlayerService } from 'src/app/core/player.service';
+import { ToastrService } from 'src/app/core/toastr.service';
+import { ErrorObject } from 'src/app/shared/models/error-object';
+import { HbServerResponse } from 'src/app/shared/models/hb-server-response.interface';
 import { Player } from 'src/app/shared/models/player.class';
 import { Position } from '../../../shared/models/position.interface';
 
@@ -24,7 +27,8 @@ export class NewPlayerComponent implements OnChanges {
 
   constructor(
     private playerAPIService: PlayerAPIService,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnChanges(): void {
@@ -59,6 +63,8 @@ export class NewPlayerComponent implements OnChanges {
     if (this.checkInputs()) {
       this.player.mainPosition = this.player.positions[0];
 
+      let response: HbServerResponse;
+
       this.playerAPIService.postPlayer({
         name: this.player.name,
         user: this.userId,
@@ -66,8 +72,17 @@ export class NewPlayerComponent implements OnChanges {
         mainPosition: this.player.mainPosition
       }).pipe(
         take(1)
-      ).subscribe(e => {
-        this.playerCreated.emit();
+      ).subscribe({
+        next: (res: HbServerResponse) => response = res,
+        error: (error: ErrorObject) => this.toastrService.error('Error while creating player'),
+        complete: () => {
+          if (response.status === 'post_player_positions_success') {
+            this.toastrService.success('Player created');
+            this.playerCreated.emit();
+          } else {
+            this.toastrService.error('Error while creating player');
+          }
+        }
       });
     }
 
