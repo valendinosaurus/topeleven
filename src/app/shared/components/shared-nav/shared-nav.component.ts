@@ -25,8 +25,9 @@ export class SharedNavComponent implements OnInit {
     );
   }
 
-  login(): void {
-    this.auth.loginWithRedirect();
+  login(e: Event): void {
+    e.preventDefault();
+    this.auth.loginWithPopup();
   }
 
   logout(): void {
