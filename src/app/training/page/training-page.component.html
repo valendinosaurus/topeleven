@@ -16,4 +16,10 @@
       [allSkills$]="allSkills$"
     ></app-training-per-skill-list-view>
   </mat-tab>
+  <mat-tab label="Sequences">
+    <app-training-recommended-list-view 
+      *ngIf="allPositions$ | async as positions"
+      [allPositions]="positions"
+    ></app-training-recommended-list-view>
+  </mat-tab>
 </mat-tab-group>

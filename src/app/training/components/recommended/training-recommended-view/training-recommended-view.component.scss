@@ -1,0 +1,19 @@
+@import '~src/global-styles/colors.scss';
+
+.training-recommended-view {
+  width: 100%;
+
+  &__header {
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 12px;
+    background-color: $color-primary;
+    display: flex;
+  }
+
+  &__content {
+    padding: 24px;
+    padding-top: 0px;
+  }
+}

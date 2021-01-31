@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,6 +45,7 @@ import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple
     MatTabsModule,
     MatProgressSpinnerModule,
     ChartsModule,
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple
     SharedSimplePositionCheckboxesComponent,
     SharedSimpleSkillCheckboxesComponent,
     ChartsModule,
+    MatRadioModule
   ]
 })
 export class SharedModule { }

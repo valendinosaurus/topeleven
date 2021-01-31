@@ -7,6 +7,7 @@ import { MyTeamPlayerPanelComponent } from './components/my-team-player-panel/my
 import { MyTeamComponent } from './components/my-team/my-team.component';
 import { MyTeamPageComponent } from './page/my-team-page.component';
 import { MyTeamDevelopmentComponent } from './components/my-team-development/my-team-development.component';
+import { CounterFormationsListViewComponent } from './components/counter-formations-list-view/counter-formations-list-view.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MyTeamDevelopmentComponent } from './components/my-team-development/my-
     MyTeamPlayerPanelComponent,
     MyTeamDragDropListComponent,
     MyTeamNewSnapshotButtonComponent,
-    MyTeamDevelopmentComponent
+    MyTeamDevelopmentComponent,
+    CounterFormationsListViewComponent
   ],
   imports: [
     SharedModule,
