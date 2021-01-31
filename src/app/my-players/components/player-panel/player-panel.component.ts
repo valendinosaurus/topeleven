@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { PlayerAPIService } from 'src/app/core/player-api.service';
@@ -31,7 +31,8 @@ export class PlayerPanelComponent {
 
   constructor(
     private playerAPIService: PlayerAPIService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private change: ChangeDetectorRef
   ) {}
 
   updatePlayer(): void {
@@ -74,6 +75,7 @@ export class PlayerPanelComponent {
       complete: () => {
         if (response.status === 'update_player_success') {
           this.toastrService.success('Player updated');
+          this.change.detectChanges();
         } else {
           this.toastrService.error('Error while updating player');
         }
