@@ -15,6 +15,10 @@
 
     &.toggled {
       height: 186px;
+
+      @media (max-width: 500px) {
+        height: 126px;
+      }
     }
   }
 

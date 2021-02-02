@@ -115,6 +115,8 @@ export class Ng2ChartsService {
       ],
       chartOptions: {
         responsive: true,
+        aspectRatio: window.innerWidth > 800 ? 2.4 : 1,
+        maintainAspectRatio: true,
         legend: {
           position: 'bottom'
         },

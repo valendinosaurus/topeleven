@@ -14,24 +14,34 @@ export class SharedNavComponent implements OnInit {
   loggedIn$: Observable<boolean>;
   user$: Observable<AuthUser>;
 
+  menuToggled = false;
+  isMobileMode = false;
+
   constructor(
     private auth: AuthService
   ) { }
 
   ngOnInit(): void {
     this.loggedIn$ = this.auth.isAuthenticated$;
+
     this.user$ = this.auth.user$.pipe(
       map((user: AuthUser) => user)
     );
+
+    this.isMobileMode = window.innerWidth <= 800;
   }
 
   login(e: Event): void {
     e.preventDefault();
-    this.auth.loginWithPopup();
+    this.auth.loginWithRedirect();
   }
 
   logout(): void {
     this.auth.logout();
+  }
+
+  toggleMenu(): void {
+    this.menuToggled = !this.menuToggled;
   }
 
 }
