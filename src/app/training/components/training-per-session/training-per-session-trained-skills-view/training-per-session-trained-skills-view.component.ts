@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input } from '@angular/core';
 import { Skill } from 'src/app/shared/models/skill.interface';
 
@@ -22,8 +23,6 @@ export class TrainingPerSessionTrainedSkillsViewComponent {
   }
 
   isSkillSelected(id: number): boolean {
-    console.log(this.selectedSkills);
-
     if (this.selectedSkills) {
       return this.selectedSkills.filter(s => s.checked).map(s => s.id).includes(id);
     }

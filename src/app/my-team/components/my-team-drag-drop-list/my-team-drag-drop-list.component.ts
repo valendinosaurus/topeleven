@@ -93,8 +93,6 @@ export class MyTeamDragDropListComponent {
   goToNextSeason(): void {
     const observables$ = [];
 
-    console.log('here');
-
     this.players.forEach(player =>
       observables$.push(
         this.playerAPIService.updatePlayer({
@@ -132,7 +130,6 @@ export class MyTeamDragDropListComponent {
 
     combineLatest(observables$).subscribe(
       () => {
-        console.log('aaaaa');
         this.seasonChanged.emit();
         this.toastrService.success('Dropped all players by 20%!');
       }

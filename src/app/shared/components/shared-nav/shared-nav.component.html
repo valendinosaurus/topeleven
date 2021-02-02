@@ -1,44 +1,68 @@
-<div class="shared-nav__main">
-  <h1 class="shared-nav__title">
-    TopEleven Profibruders
-  </h1>
-  <a [routerLink]="['/my-players']">
-    <div class="shared-nav__item">
-      My Players
+<div 
+  class="shared-nav__main"
+  [class.shared-nav__main--toggled]="menuToggled && isMobileMode"
+>
+  <div class="shared-nav__mobile-header">
+    <div class="shared-nav__menu-button">
+      <button 
+        (click)="toggleMenu()"
+        mat-button
+      >
+        <mat-icon>
+          menu
+        </mat-icon>
+      </button>
     </div>
-  </a>
-  <a [routerLink]="['/my-team']">
-    <div class="shared-nav__item">
-      My Team
-    </div>
-  </a>
-  <!-- a [routerLink]="['/white-skills']">
-    <div class="shared-nav__item">
-      White Skills
-    </div>
-  </a -->
-  <a [routerLink]="['/training']">
-    <div class="shared-nav__item">
-      Training
-    </div>
-  </a>
-  <a 
-    *ngIf="!(loggedIn$ | async)"
-    href="#"
-    (click)="login($event)"
+
+    <h1 class="shared-nav__title--mobile">
+      TopEleven Manager
+    </h1>
+  </div>
+
+  <div 
+    class="shared-nav__wrapper"
   >
-    <div class="shared-nav__item">
-      Login
-    </div>
-  </a>
-  <a 
-    *ngIf="(loggedIn$ | async)"
-    href="#"
-    (click)="logout()"
-  >
-    <div class="shared-nav__item shared-nav__item-logout">
-      {{ (user$ | async)?.nickname }} <br>
-      Logout
-    </div>
-  </a>
+    <h1 class="shared-nav__title">
+      TopEleven Manager
+    </h1>
+    <a [routerLink]="['/my-players']" (click)="toggleMenu()">
+      <div class="shared-nav__item">
+        My Players
+      </div>
+    </a>
+    <a [routerLink]="['/my-team']" (click)="toggleMenu()">
+      <div class="shared-nav__item">
+        My Team
+      </div>
+    </a>
+    <!-- a [routerLink]="['/white-skills']">
+      <div class="shared-nav__item">
+        White Skills
+      </div>
+    </a -->
+    <a [routerLink]="['/training']" (click)="toggleMenu()">
+      <div class="shared-nav__item">
+        Training
+      </div>
+    </a>
+    <a 
+      *ngIf="!(loggedIn$ | async)"
+      href="#"
+      (click)="login($event)"
+    >
+      <div class="shared-nav__item">
+        Login
+      </div>
+    </a>
+    <a 
+      *ngIf="(loggedIn$ | async)"
+      href="#"
+      (click)="logout()"
+    >
+      <div class="shared-nav__item shared-nav__item-logout">
+        {{ (user$ | async)?.nickname }} <br>
+        Logout
+      </div>
+    </a>
+  </div>
 </div>
