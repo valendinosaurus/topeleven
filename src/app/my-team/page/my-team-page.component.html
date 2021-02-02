@@ -1,5 +1,18 @@
-<h1 class="main-header">My Team</h1>
+<mat-tab-group>
+  <mat-tab label="My Team">
+    <h1 class="main-header">My Team</h1>
+    <app-my-team
+      [userId]="userId$ | async"
+    ></app-my-team>
+  </mat-tab>
 
-<app-my-team
-  [userId]="userId$ | async"
-></app-my-team>
+  <mat-tab label="Development" *ngIf="userId$ | async as userId">
+    <app-my-team-development
+      [userId]="userId"
+    ></app-my-team-development>
+  </mat-tab>
+
+  <mat-tab label="Counter Formations">
+    <app-counter-formations-list-view></app-counter-formations-list-view>
+  </mat-tab>
+</mat-tab-group>

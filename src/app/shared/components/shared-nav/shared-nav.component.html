@@ -25,7 +25,7 @@
   <a 
     *ngIf="!(loggedIn$ | async)"
     href="#"
-    (click)="login()"
+    (click)="login($event)"
   >
     <div class="shared-nav__item">
       Login

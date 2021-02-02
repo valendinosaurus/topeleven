@@ -18,6 +18,8 @@ import { TrainingPerSkillListViewComponent } from './components/training-per-ski
 import { TrainingPerSessionTrainedSkillsViewComponent } from './components/training-per-session/training-per-session-trained-skills-view/training-per-session-trained-skills-view.component';
 import { TrainingPerSessionPositionEfficiencyViewComponent } from './components/training-per-session/training-per-session-position-efficiency-view/training-per-session-position-efficiency-view.component';
 import { TrainingPerSkillTrainingViewComponent } from './components/training-per-skill/training-per-skill-training-view/training-per-skill-training-view.component';
+import { TrainingRecommendedViewComponent } from './components/recommended/training-recommended-view/training-recommended-view.component';
+import { TrainingRecommendedListViewComponent } from './components/recommended/training-recommended-list-view/training-recommended-list-view.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { TrainingPerSkillTrainingViewComponent } from './components/training-per
     TrainingPerSkillListViewComponent,
     TrainingPerSessionTrainedSkillsViewComponent,
     TrainingPerSessionPositionEfficiencyViewComponent,
-    TrainingPerSkillTrainingViewComponent
+    TrainingPerSkillTrainingViewComponent,
+    TrainingRecommendedViewComponent,
+    TrainingRecommendedListViewComponent
   ],
   imports: [
     SharedModule

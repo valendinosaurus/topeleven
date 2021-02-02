@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
@@ -33,7 +34,8 @@ import { WhiteSkillsModule } from './white-skills/white-skills.module';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

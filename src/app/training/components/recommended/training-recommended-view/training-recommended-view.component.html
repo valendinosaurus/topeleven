@@ -1,0 +1,23 @@
+<div class="training-recommended-view tile">
+  <div 
+    class="training-recommended-view__header"
+    [ngClass]="getHeaderClass()"  
+  >
+  <ng-container *ngFor="let position of drillSequence.positions; let i = index;">
+    <div 
+      class="position-panel"
+      [ngClass]="getPositionLabelClass(position)"
+    >
+      {{ drillSequence.positionNames[i] }}
+    </div>
+  </ng-container>
+  </div>
+
+  <div class="training-recommended-view__content">
+    <ng-container *ngFor="let drill of drillSequence.trainingSessions">
+      <p>
+        {{ drill }}
+      </p>
+    </ng-container>
+  </div>
+</div>
