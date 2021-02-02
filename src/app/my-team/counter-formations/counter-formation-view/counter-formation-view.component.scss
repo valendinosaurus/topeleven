@@ -1,0 +1,16 @@
+.counter-formation-view {
+  width: 80%;
+  margin-bottom: 8px;
+  padding: 12px;
+
+  &__formation {
+    font-size: 32px;
+    margin: 0;
+    margin-top: 6px;
+    margin-bottom: 4px;
+
+    &--counter {
+      text-align: right;
+    }
+  }
+}

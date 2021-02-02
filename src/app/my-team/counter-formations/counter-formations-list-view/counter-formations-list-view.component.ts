@@ -16,7 +16,7 @@ export class CounterFormationsListViewComponent implements OnInit {
 
   filterArgument$ = new ReplaySubject<string>();
 
-  constructor() { }
+  mentality: 'offensive' | 'neutral' | 'defensive' = 'neutral';
 
   ngOnInit(): void {
     this.filterArgument$.next('');

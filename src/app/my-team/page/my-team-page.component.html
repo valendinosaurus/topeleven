@@ -1,8 +1,8 @@
 <mat-tab-group>
   <mat-tab label="My Team">
-    <app-my-team
+    <app-my-team-strength-container
       [userId]="userId$ | async"
-    ></app-my-team>
+    ></app-my-team-strength-container>
   </mat-tab>
 
   <mat-tab label="Development" *ngIf="userId$ | async as userId">

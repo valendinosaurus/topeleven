@@ -1,0 +1,30 @@
+<div class="counter-formation-view tile">
+  <div class="row counter-formation-view__row">
+    <div class="col-md-5">
+      <p class="counter-formation-view__formation">
+        {{ formation.formationName }}
+      </p>
+    </div>
+    <div class="col-md-1">
+      <mat-icon>
+        double_arrow
+      </mat-icon>
+    </div>
+    <div class="col-md-6" *ngIf="mentality === 'offensive'">
+      <p class="counter-formation-view__formation counter-formation-view__formation--counter">
+        {{ formation.counterAttacking }}
+      </p>
+    </div>
+    <div class="col-md-6" *ngIf="mentality === 'neutral'">
+      <p class="counter-formation-view__formation counter-formation-view__formation--counter">
+        {{ formation.counterNeutral }}
+      </p>
+    </div>
+    <div class="col-md-6" *ngIf="mentality === 'defensive'">
+      <p class="counter-formation-view__formation counter-formation-view__formation--counter">
+        {{ formation.counterDefensive }}
+      </p>
+    </div>
+  </div>
+
+</div>

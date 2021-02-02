@@ -1,0 +1,21 @@
+@import '~src/global-styles/colors.scss';
+
+.counter-formation-header {
+  width: 80%;
+  margin-bottom: 20px;
+  border-bottom: solid 1px $color-primary;
+
+  &__row {
+    width: 100%;
+  }
+
+  &__header {
+    color: solid 1px $color-primary;
+    font-weight: bold;
+    margin: 0;
+
+    &--right {
+      text-align: right;
+    }
+  }
+}
