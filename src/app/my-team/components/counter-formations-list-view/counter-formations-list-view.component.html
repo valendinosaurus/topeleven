@@ -1,1 +1,30 @@
-<p>counter-formations-list-view works!</p>
+<div class="counter-formation-list-view">
+  
+  <input 
+    #input
+    (input)="filter(input.value)"
+    pattern="[0-9\-]"
+  >
+
+  <div class="row">
+    <div class="col-md-3">
+      Opponent's Formation
+    </div>
+    <div class="col-md-3">
+      Your Formation (Att)
+    </div>
+    <div class="col-md-3">
+      Your Formation (Neutral)
+    </div>
+    <div class="col-md-3">
+      Your Formation (Def)
+    </div>
+  </div>
+
+  <ng-container *ngFor="let formation of filteredFormations$ | async">
+    <app-formation-view 
+      [formation]="formation"
+    ></app-formation-view>
+  </ng-container>
+
+</div>
