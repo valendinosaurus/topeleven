@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { combineLatest, Observable, ReplaySubject } from 'rxjs';
+import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { TrainingAPIService } from 'src/app/core/training-api.service';
+import { allTrainingSessions } from 'src/app/shared/const/training-session-data.const';
 import { Position } from 'src/app/shared/models/position.interface';
 import { Skill } from 'src/app/shared/models/skill.interface';
 import { TrainingSession } from 'src/app/shared/models/training-session.interface';
@@ -19,12 +19,8 @@ export class TrainingPerPositionListViewComponent implements OnInit {
   combinedObjects$: Observable<PositionTrainingObject[]>;
   selectedPositions$ = new ReplaySubject<{id: number; checked: boolean}[]>();
 
-  constructor(
-    private trainingAPIService: TrainingAPIService
-  ) { }
-
   ngOnInit(): void {
-    const allTrainingSessions$ = this.trainingAPIService.getTrainingSessions();
+    const allTrainingSessions$ = of(allTrainingSessions);
 
     this.combinedObjects$ = combineLatest([
       allTrainingSessions$,
@@ -124,7 +120,6 @@ export class TrainingPerPositionListViewComponent implements OnInit {
   }
 
   filterByPositions(positions: {id: number; checked: boolean}[]): void {
-    console.log(positions);
     this.selectedPositions$.next(positions);
   }
 

@@ -1,10 +1,10 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
-import { map, shareReplay, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { PlayerAPIService } from 'src/app/core/player-api.service';
-import { PositionAPIService } from 'src/app/core/position-api.service';
 import { SnapshotService } from 'src/app/core/snapshot.service';
 import { TeamAPIService } from 'src/app/core/team-api.service';
+import { allPositions } from 'src/app/shared/const/position-data.const';
 import { HbServerResponse } from 'src/app/shared/models/hb-server-response.interface';
 import { Player } from 'src/app/shared/models/player.class';
 import { PositionHasWhiteSkill } from 'src/app/shared/models/position-has-white-skill.interface';
@@ -26,7 +26,6 @@ export class MyTeamComponent implements OnChanges {
   teamOrder$: Observable<TeamOrder>;
 
   constructor(
-    private positionAPIService: PositionAPIService,
     private playerAPIService: PlayerAPIService,
     private teamAPIService: TeamAPIService,
     private snapshotService: SnapshotService
@@ -35,17 +34,7 @@ export class MyTeamComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.userId) {
       if (this.userId) {
-        this.allPositions$ = combineLatest([
-          this.positionAPIService.getPositions(),
-          this.positionAPIService.getWhiteSkills()
-        ]).pipe(
-          map(
-            ([positions, positionHasWhiteSkills]: [Position[], PositionHasWhiteSkill[]]) =>
-              this.mapWhiteSkillsToPosition(positions, positionHasWhiteSkills)
-          ),
-          shareReplay()
-        );
-
+        this.allPositions$ = of(allPositions);
         this.fetchPlayers(false);
       }
 
@@ -55,7 +44,7 @@ export class MyTeamComponent implements OnChanges {
   fetchPlayers(afterNextSeason: boolean): void {
     this.allPlayers$ = this.allPositions$.pipe(
       switchMap(
-        allPositions => this.playerAPIService.getPlayers(this.userId, allPositions)
+        positions => this.playerAPIService.getPlayers(this.userId, positions)
       )
     );
 
@@ -80,14 +69,16 @@ export class MyTeamComponent implements OnChanges {
             )
           );
 
-          const pushedPlayerIds: number[] = sortedPlayers.map(p => p.id);
+          const cleanedSortedPlayers = sortedPlayers.filter(p => p);
+
+          const pushedPlayerIds: number[] = cleanedSortedPlayers.map(p => p.id);
           const remainingPlayers: number[] = allPlayerIds.filter((n: number) => !pushedPlayerIds.includes(n));
 
-          sortedPlayers.push(
+          cleanedSortedPlayers.push(
             ...players.filter(p => remainingPlayers.includes(p.id))
           );
 
-          return sortedPlayers;
+          return cleanedSortedPlayers;
         }
       ),
       switchMap(

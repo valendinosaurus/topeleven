@@ -26,7 +26,9 @@ import { WhiteSkillsModule } from './white-skills/white-skills.module';
     TrainingModule,
     AuthModule.forRoot({
       domain: 'hb-imhotapp.eu.auth0.com',
-      clientId: 'SaxHAdQyAn1G6Otc1PNsbj6vS1kBMi7a'
+      clientId: 'SaxHAdQyAn1G6Otc1PNsbj6vS1kBMi7a',
+      useRefreshTokens: true,
+      cacheLocation: 'localstorage'
     })
   ],
   providers: [
