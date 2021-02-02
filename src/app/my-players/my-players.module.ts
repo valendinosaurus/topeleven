@@ -10,7 +10,6 @@ import { PlayerPanelSkillGroupComponent } from './components/player-panel-skill-
 import { PlayerPanelStatsComponent } from './components/player-panel-stats/player-panel-stats.component';
 import { PlayerPanelComponent } from './components/player-panel/player-panel.component';
 import { SingleSkillFieldComponent } from './components/single-skill-field/single-skill-field.component';
-import { TeamStatsComponent } from './components/team-stats/team-stats.component';
 import { MyPlayersPageComponent } from './page/my-players-page.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { MyPlayersPageComponent } from './page/my-players-page.component';
     PlayerPanelComponent,
     PlayerPanelHeaderComponent,
     PlayerPanelStatsComponent,
-    TeamStatsComponent,
     PlayerPanelSkillGroupComponent,
     PlayerPanelPositionsComponent,
     NewPlayerComponent,

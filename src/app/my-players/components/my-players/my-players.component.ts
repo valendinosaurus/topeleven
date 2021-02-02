@@ -1,9 +1,9 @@
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { combineLatest, Observable, ReplaySubject } from 'rxjs';
-import { map, shareReplay, switchMap } from 'rxjs/operators';
+import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { PlayerAPIService } from 'src/app/core/player-api.service';
-import { PositionAPIService } from 'src/app/core/position-api.service';
+import { allPositions } from 'src/app/shared/const/position-data.const';
 import { Player } from 'src/app/shared/models/player.class';
 import { Position } from 'src/app/shared/models/position.interface';
 import { PositionHasWhiteSkill } from '../../../shared/models/position-has-white-skill.interface';
@@ -28,7 +28,6 @@ export class MyPlayersComponent implements OnChanges {
   private deletedPlayers: number[] = [];
 
   constructor(
-    private positionAPIService: PositionAPIService,
     private playerAPIService: PlayerAPIService,
     private modal: NgbModal
   ) {}
@@ -36,16 +35,7 @@ export class MyPlayersComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.userId) {
       if (this.userId) {
-        this.allPositions$ = combineLatest([
-          this.positionAPIService.getPositions(),
-          this.positionAPIService.getWhiteSkills()
-        ]).pipe(
-          map(
-            ([positions, positionHasWhiteSkills]: [Position[], PositionHasWhiteSkill[]]) =>
-              this.mapWhiteSkillsToPosition(positions, positionHasWhiteSkills)
-          ),
-          shareReplay()
-        );
+        this.allPositions$ = of(allPositions);
 
         this.fetchPlayers();
       }

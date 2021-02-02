@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { PositionAPIService } from 'src/app/core/position-api.service';
-import { SkillAPIService } from 'src/app/core/skill-api.service';
+import { Observable, of } from 'rxjs';
+import { allPositions } from 'src/app/shared/const/position-data.const';
 import { PositionHasWhiteSkill } from 'src/app/shared/models/position-has-white-skill.interface';
 import { Position } from 'src/app/shared/models/position.interface';
 import { Skill } from 'src/app/shared/models/skill.interface';
@@ -17,17 +16,8 @@ export class WhiteSkillsListComponent implements OnInit {
   allSkills$: Observable<Skill[]>;
   allPositionHasWhiteSkills$: Observable<PositionHasWhiteSkill[]>;
 
-  constructor(
-    private positionAPIService: PositionAPIService,
-    private skillAPIService: SkillAPIService
-  ) { }
-
   ngOnInit(): void {
-    this.allPositions$ = this.positionAPIService.getPositions();
-
-    this.allSkills$ = this.skillAPIService.getSkills();
-
-    this.allPositionHasWhiteSkills$ = this.positionAPIService.getWhiteSkills();
+    this.allPositions$ = of(allPositions);
   }
 
 }

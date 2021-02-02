@@ -18,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'my-team',
+    canActivate: [LoginGuard],
     component: MyTeamPageComponent
   },
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'my-players',
+    redirectTo: 'training',
     pathMatch: 'full'
   }
 ];
