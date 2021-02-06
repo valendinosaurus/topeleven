@@ -1,23 +1,29 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { MyTeamDragDropListComponent } from './components/my-team-drag-drop-list/my-team-drag-drop-list.component';
-import { MyTeamNewSnapshotButtonComponent } from './components/my-team-new-snapshot-button/my-team-new-snapshot-button.component';
-import { MyTeamPlayerPanelComponent } from './components/my-team-player-panel/my-team-player-panel.component';
-import { MyTeamComponent } from './components/my-team/my-team.component';
+import { CounterFormationViewComponent } from './counter-formations/counter-formation-view/counter-formation-view.component';
+import { CounterFormationsHeaderComponent } from './counter-formations/counter-formations-header/counter-formations-header.component';
+import {
+  CounterFormationsListViewComponent
+} from './counter-formations/counter-formations-list-view/counter-formations-list-view.component';
+import { MyTeamDevelopmentComponent } from './development/my-team-development/my-team-development.component';
+import { MyTeamDragDropListComponent } from './my-team-strength/my-team-drag-drop-list/my-team-drag-drop-list.component';
+import { MyTeamNewSnapshotButtonComponent } from './my-team-strength/my-team-new-snapshot-button/my-team-new-snapshot-button.component';
+import { MyTeamPlayerPanelComponent } from './my-team-strength/my-team-player-panel/my-team-player-panel.component';
+import { MyTeamStrengthContainerComponent } from './my-team-strength/my-team-strength-container/my-team-strength-container.component';
 import { MyTeamPageComponent } from './page/my-team-page.component';
-import { MyTeamDevelopmentComponent } from './components/my-team-development/my-team-development.component';
-import { CounterFormationsListViewComponent } from './components/counter-formations-list-view/counter-formations-list-view.component';
 
 @NgModule({
   declarations: [
     MyTeamPageComponent,
-    MyTeamComponent,
+    MyTeamStrengthContainerComponent,
     MyTeamPlayerPanelComponent,
     MyTeamDragDropListComponent,
     MyTeamNewSnapshotButtonComponent,
     MyTeamDevelopmentComponent,
-    CounterFormationsListViewComponent
+    CounterFormationsListViewComponent,
+    CounterFormationViewComponent,
+    CounterFormationsHeaderComponent
   ],
   imports: [
     SharedModule,

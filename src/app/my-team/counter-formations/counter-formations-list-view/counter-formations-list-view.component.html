@@ -1,0 +1,55 @@
+<div class="counter-formation-list-view">
+  
+  <div class="counter-formation-list-view__filter">
+  
+    <mat-form-field
+      class="counter-formation-list-view__filter-input"
+    >
+      <input 
+        matInput
+        #input
+        placeholder="FILTER"
+        (input)="filter(input.value)"
+      />
+    </mat-form-field>
+    
+    <mat-radio-group 
+      class="counter-formation-list-view__radio-group"
+      [(ngModel)]="mentality"
+      aria-label="Select a mentality"
+    >
+      <mat-radio-button 
+        class="counter-formation-list-view__radio-button"
+        value="offensive"
+      >
+        Offensive
+      </mat-radio-button>
+      <mat-radio-button 
+        class="counter-formation-list-view__radio-button"
+        value="neutral"
+      >
+        Neutral
+      </mat-radio-button>
+      <mat-radio-button 
+        class="counter-formation-list-view__radio-button"
+        value="defensive"
+      >
+        Defensive
+      </mat-radio-button>
+    </mat-radio-group>
+
+  </div>
+
+
+  <app-counter-formations-header
+    [mentality]="mentality"
+  ></app-counter-formations-header>
+
+  <ng-container *ngFor="let formation of filteredFormations$ | async">
+    <app-counter-formation-view 
+      [formation]="formation"
+      [mentality]="mentality"
+    ></app-counter-formation-view>
+  </ng-container>
+
+</div>

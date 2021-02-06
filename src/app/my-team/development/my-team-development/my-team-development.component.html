@@ -1,0 +1,15 @@
+<div class="my-team-development">
+  <div class="my-team-development__graph-wrapper">
+    <canvas *ngIf="graphData"
+      baseChart
+      [datasets]="graphData.chartData"
+      [labels]="graphData.chartLabels"
+      [options]="graphData.chartOptions"
+      [colors]="graphData.chartColors"
+      [legend]="graphData.chartLegend"
+      [chartType]="graphData.chartType"
+      [plugins]="graphData.chartPlugins"
+    >
+    </canvas>
+  </div>
+</div>
