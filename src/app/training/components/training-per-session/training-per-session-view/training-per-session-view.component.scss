@@ -11,6 +11,13 @@
     padding: 12px;
     height: 44px;
     background-color: $color-primary;
+    display: flex;
+    justify-content: space-between;
+
+    small {
+      font-size: 14px;
+      text-align: right;
+    }
 
     &--attack {
       color: $color-attack; 

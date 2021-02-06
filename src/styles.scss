@@ -14,6 +14,7 @@
 // hue. Available color palettes: https://material.io/design/color/
 $topeleven-primary: mat-palette($mat-indigo);
 $topeleven-accent: mat-palette($mat-amber, A200, A100, A400);
+$mobile-breakpoint: 800px;
 
 // The warn palette is optional (defaults to red).
 $topeleven-warn: mat-palette($mat-red);
@@ -52,7 +53,7 @@ body {
   max-width: 1280px;
   margin: auto;
 
-  @media (max-width: 500px) {
+  @media (max-width: $mobile-breakpoint) {
     padding: 8px;
     padding-top: 60px;
   }
@@ -68,7 +69,7 @@ body {
   margin-bottom: 30px;
   overflow: hidden;
 
-  @media (max-width: 500px) {
+  @media (max-width: $mobile-breakpoint) {
     margin-bottom: 12px;
   }
 }
@@ -95,7 +96,7 @@ body {
 .pl-16 {
   padding-left: 16px;
   
-  @media (max-width: 500px) {
+  @media (max-width: $mobile-breakpoint) {
     padding-left: 10px;
   }
 }
@@ -115,7 +116,15 @@ h1 {
   margin-top: 20px;
   margin-bottom: 8px;
 
-  @media (max-width: 500px){
+  @media (max-width: $mobile-breakpoint){
     text-align: center  !important;
+  }
+}
+
+.mat-radio-button {
+  margin-right: 24px;
+
+  @media (max-width: $mobile-breakpoint) {
+    width: 100%;
   }
 }

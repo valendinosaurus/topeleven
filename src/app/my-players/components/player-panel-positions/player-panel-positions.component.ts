@@ -75,6 +75,9 @@ export class PlayerPanelPositionsComponent implements OnChanges {
   }
 
   getMainPositionName(): string {
+    console.log('find');
+    console.log(this.player.mainPosition);
+
     if (this.allPositions) {
       return this.allPositions.find(p => p.id === this.player.mainPosition).name;
     }

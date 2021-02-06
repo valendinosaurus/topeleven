@@ -1,6 +1,33 @@
 <div class="my-team-development">
+
+  <mat-radio-group 
+    class="my-team-development__radio-group mb-3"
+    (change)="filter($event.value)"
+    aria-label="Select skill type"
+  >
+    <mat-radio-button 
+      class="my-team-development__radio-button"
+      value="mpw"
+      checked
+    >
+      Position White Skills %
+    </mat-radio-button>
+    <mat-radio-button 
+      class="my-team-development__radio-button"
+      value="ws"
+    >
+      All White Skills %
+    </mat-radio-button>
+    <mat-radio-button 
+      class="my-team-development__radio-button"
+      value="te"
+    >
+      All Skills %
+    </mat-radio-button>
+  </mat-radio-group>
+
   <div class="my-team-development__graph-wrapper">
-    <canvas *ngIf="graphData"
+    <canvas *ngIf="graphData$ | async as graphData"
       baseChart
       [datasets]="graphData.chartData"
       [labels]="graphData.chartLabels"

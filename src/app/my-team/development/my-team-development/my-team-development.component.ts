@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable, ReplaySubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Ng2ChartsService } from 'src/app/core/ng2-charts.service';
 import { SnapshotAPIService } from 'src/app/core/snapshot-api.service';
 import { Ng2ChartData } from 'src/app/shared/models/ng2-chart-data';
@@ -16,7 +17,9 @@ export class MyTeamDevelopmentComponent implements OnInit {
 
   allSnapshots$: Observable<Snapshot[]>;
 
-  graphData: Ng2ChartData;
+  skillType$ = new ReplaySubject<'mpw' | 'ws' | 'te'>();
+
+  graphData$: Observable<Ng2ChartData>;
 
   constructor(
     private snapshotAPIService: SnapshotAPIService,
@@ -24,11 +27,21 @@ export class MyTeamDevelopmentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.snapshotAPIService.getSnapshots(this.userId).subscribe(
-      e => {
-        this.graphData = this.chartService.mapSnapshotDataForNg2Chart(e, 'line');
-      }
+    this.graphData$ = combineLatest([
+      this.snapshotAPIService.getSnapshots(this.userId),
+      this.skillType$
+    ]).pipe(
+      map(
+        ([snapshots, skillType]: [Snapshot[], 'mpw' | 'ws' | 'te']) =>
+          this.chartService.mapSnapshotDataForNg2Chart(snapshots, 'line', skillType)
+      )
     );
+
+    this.skillType$.next('mpw');
+  }
+
+  filter(skillType: 'mpw' | 'ws' | 'te'): void {
+    this.skillType$.next(skillType);
   }
 
 }

@@ -2,9 +2,14 @@
   class="training-per-position-session-view"
   [ngClass]="getPanelClass()"
 >
-  <h3 class="training-per-position-session-view__header">
-    {{ trainingSession.name }}
-  </h3>
+  <div class="training-per-position-session-view__header">
+    <h3>
+      {{ trainingSession.name }}
+    </h3>
+    <small>
+      {{ trainingSession.intensity }}
+    </small>
+  </div>
   
   <div class="training-per-position-session-view__row">
     <div class="training-per-position-session-view__column-skills">

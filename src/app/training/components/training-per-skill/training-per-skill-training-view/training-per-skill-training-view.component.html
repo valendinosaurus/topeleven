@@ -3,7 +3,12 @@
     class="training-per-skill-training-view__header"
     [ngClass]="getHeaderClass()"  
   >
-    {{ combinedObject.t.name }}
+    <div>
+      {{ combinedObject.t.name }}
+    </div> 
+    <small>
+      {{ combinedObject.t.intensity }}
+    </small>
   </div>
 
   <div class="training-per-skill-training-view__content">

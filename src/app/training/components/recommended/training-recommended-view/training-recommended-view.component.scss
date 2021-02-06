@@ -13,7 +13,15 @@
   }
 
   &__content {
-    padding: 24px;
-    padding-top: 0px;
+    padding: 12px;
+  }
+
+  &__drills {
+    padding-left: 20px;
+  }
+
+  &__drill {
+    text-transform: uppercase;
+    margin: 0;
   }
 }

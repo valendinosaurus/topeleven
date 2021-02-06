@@ -1,4 +1,4 @@
-$mobile-breakboint: 800px;
+$mobile-breakpoint: 800px;
 
 .my-team-drag-drop-list {
   padding-top: 20px;
@@ -11,7 +11,7 @@ $mobile-breakboint: 800px;
     background-color: rgba(#2A223B, 0.8);
     padding: 16px;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       flex-wrap: wrap;
       padding: 6px;
     }
@@ -28,7 +28,7 @@ $mobile-breakboint: 800px;
       opacity: 0.7;
     }
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       width: 50%;
     }
   }
@@ -36,7 +36,7 @@ $mobile-breakboint: 800px;
   &__stat-header {
     text-transform: uppercase;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       font-size: 12px;
       margin-bottom: 0px;
     }
@@ -46,7 +46,7 @@ $mobile-breakboint: 800px;
     font-size: 54px;
     font-weight: 500;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       font-size: 40px;
     }
   }
@@ -56,7 +56,7 @@ $mobile-breakboint: 800px;
     align-items: center;
     justify-content: center;
     
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       width: 50%;
       display: none;
     }
@@ -70,7 +70,7 @@ $mobile-breakboint: 800px;
     background: rgba(255, 255, 255, 0.9);
     width: 100%;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       display: flex;
       padding: 12px;
       align-items: center;
@@ -89,7 +89,7 @@ $mobile-breakboint: 800px;
     border-radius: 4px;
     overflow: hidden;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       width: 80%;
       margin: auto;
     }
