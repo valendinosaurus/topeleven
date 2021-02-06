@@ -1,6 +1,6 @@
 @import '~src/global-styles/colors.scss';
 
-$mobile-breakboint: 800px;
+$mobile-breakpoint: 800px;
 
 .shared-nav {
   &__main {
@@ -11,7 +11,7 @@ $mobile-breakboint: 800px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: height 300ms ease-out;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       position: fixed;
       top: 0;
       left: 0;
@@ -22,7 +22,7 @@ $mobile-breakboint: 800px;
     }
 
     &--toggled {
-      height: 240px;
+      height: 320px;
     }
   }
 
@@ -31,7 +31,7 @@ $mobile-breakboint: 800px;
     color: $color-secondary;
     width: 20%;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       display: block;
       justify-content: space-around;
       align-items: center;
@@ -43,7 +43,7 @@ $mobile-breakboint: 800px;
     width: 100%;
     display: flex;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       display: flex;
     }
   }
@@ -55,7 +55,7 @@ $mobile-breakboint: 800px;
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-breakpoint) {
       display: block;
       height: auto;
       min-height: 60px;
@@ -68,7 +68,7 @@ $mobile-breakboint: 800px;
     padding-right: 20px;
     margin: 0 !important;
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       display: none;
     }
 
@@ -83,7 +83,7 @@ $mobile-breakboint: 800px;
       color: white;
       margin: 0 !important;
       
-      @media (max-width: $mobile-breakboint) {
+      @media (max-width: $mobile-breakpoint) {
         display: block;
       }
     }
@@ -99,7 +99,7 @@ $mobile-breakboint: 800px;
       color: white;
     }
 
-    @media (max-width: $mobile-breakboint) {
+    @media (max-width: $mobile-breakpoint) {
       font-size: 16px;
       padding: 12px;
       border-top: solid 1px #4d3e6c;

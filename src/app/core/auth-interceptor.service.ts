@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable, throwError } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
 
-    if (req.url.includes('/users')) {
+    if (req.url.includes('/users') || !environment.production) {
       return next.handle(req);
     }
 

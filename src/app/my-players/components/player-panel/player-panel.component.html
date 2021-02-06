@@ -28,6 +28,30 @@
     (mainPositionChanged)="setMainPosition($event)"
   ></app-player-panel-positions>
 
+  <div class="player__age-wrapper">
+    <ng-container *ngIf="!editMode; else editAge">
+      <label class="player-panel-label">
+        AGE
+      </label>
+      <p class="player__age">
+        {{ player.age }}
+      </p>
+    </ng-container>
+
+    <ng-template #editAge>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="AGE"
+          [(ngModel)]="player.age"
+        />
+      </mat-form-field>
+    </ng-template>
+  </div>
+
+
+
   <p 
     class="player-panel-label pl-16"
     (click)="toggleSkills()" 

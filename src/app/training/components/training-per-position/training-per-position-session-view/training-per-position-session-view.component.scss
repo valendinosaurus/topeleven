@@ -8,11 +8,15 @@
   margin-top: 4px;
 
   &__header {
-    margin-bottom: -6px;
     margin-top: 0px;
-    font-size: 12px;
-    font-weight: 500;
     text-transform: uppercase;
+
+    h3 {
+      margin: 0;
+      margin-bottom: -6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
   }
   
   &__row {

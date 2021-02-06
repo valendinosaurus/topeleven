@@ -121,7 +121,8 @@ export class MyTeamDragDropListComponent {
           strength: this.getNormalizedNextSeasonSkillValue(player.strength.value),
           aggression: this.getNormalizedNextSeasonSkillValue(player.aggression.value),
           speed: this.getNormalizedNextSeasonSkillValue(player.speed.value),
-          creativity: this.getNormalizedNextSeasonSkillValue(player.creativity.value)
+          creativity: this.getNormalizedNextSeasonSkillValue(player.creativity.value),
+          age: player.age + 1
         }).pipe(
           take(1)
         )

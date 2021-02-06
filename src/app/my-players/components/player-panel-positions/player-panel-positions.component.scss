@@ -1,9 +1,7 @@
 .player-panel-positions {
-  margin-bottom: 16px;
-  padding: 16px 16px 16px 16px;
+  padding: 16px 16px 0 16px;
     
   @media (max-width: 500px) {
-    margin-bottom: 8px;
-    padding: 4px 8px 4px 8px;
+    padding: 4px 8px 0 8px;
   }
 }

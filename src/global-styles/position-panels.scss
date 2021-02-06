@@ -3,6 +3,10 @@
 .position-checkbox {
 
   display: inline-block;
+
+  @media (max-width: 800px) {
+    margin-bottom: 4px;
+  }
   
   input {
     display: none;

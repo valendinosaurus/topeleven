@@ -3,7 +3,12 @@
     class="training-per-session-view__header"
     [ngClass]="getHeaderClass()"  
   >
-    {{ combinedObject.session.name }}
+    <div>
+      {{ combinedObject.session.name }}
+    </div> 
+    <small>
+      {{ combinedObject.session.intensity }}
+    </small>
   </div>
 
   <div class="training-per-session-view__content">

@@ -30,4 +30,5 @@ export interface PlayerRaw {
   speed: number;
   creativity: number;
   user: string;
+  age: number;
 }

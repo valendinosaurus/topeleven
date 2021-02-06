@@ -5,6 +5,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 1,
     name: 'pass go and shoot',
     area: 'Attacking',
+    intensity: 'soft',
     skillsString: '3,16,19,24',
     skills: [
       3,
@@ -17,6 +18,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 2,
     name: 'fast counter attacks',
     area: 'Attacking',
+    intensity: 'very hard',
     skillsString: '5,16,18,20,25',
     skills: [
       5,
@@ -30,6 +32,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 3,
     name: 'skill drill',
     area: 'Attacking',
+    intensity: 'very soft',
     skillsString: '10,14,17,25',
     skills: [
       10,
@@ -42,6 +45,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 4,
     name: 'shooting technique',
     area: 'Attacking',
+    intensity: 'medium',
     skillsString: '1,2,19,20,22',
     skills: [
       1,
@@ -55,6 +59,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 5,
     name: 'set-piece delivery',
     area: 'Attacking',
+    intensity: 'medium',
     skillsString: '4,12,14,18,19',
     skills: [
       4,
@@ -68,6 +73,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 6,
     name: 'slalom dribble',
     area: 'Attacking',
+    intensity: 'hard',
     skillsString: '16,17,21,24',
     skills: [
       16,
@@ -80,6 +86,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 7,
     name: 'wing play',
     area: 'Attacking',
+    intensity: 'hard',
     skillsString: '8,14,18,19,20',
     skills: [
       8,
@@ -93,6 +100,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 8,
     name: '1on1 finishing',
     area: 'Attacking',
+    intensity: 'soft',
     skillsString: '2,3,11,17,20',
     skills: [
       2,
@@ -106,6 +114,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 9,
     name: 'press the play',
     area: 'Defending',
+    intensity: 'hard',
     skillsString: '11,12,13,15,23',
     skills: [
       11,
@@ -119,6 +128,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 10,
     name: 'piggy in the middle',
     area: 'Defending',
+    intensity: 'soft',
     skillsString: '11,13,16,21,23',
     skills: [
       11,
@@ -132,6 +142,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 11,
     name: 'GK training',
     area: 'Defending',
+    intensity: 'hard',
     skillsString: '1,2,6,7,9',
     skills: [
       1,
@@ -145,6 +156,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 12,
     name: 'use your head',
     area: 'Defending',
+    intensity: 'soft',
     skillsString: '13,14,16,25',
     skills: [
       13,
@@ -157,6 +169,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 13,
     name: 'stop the attacker',
     area: 'Defending',
+    intensity: 'medium',
     skillsString: '11,12,15,17,22',
     skills: [
       11,
@@ -170,6 +183,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 14,
     name: 'defending crosses',
     area: 'Defending',
+    intensity: 'medium',
     skillsString: '9,12,14,15,18',
     skills: [
       9,
@@ -183,6 +197,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 15,
     name: 'video analysis',
     area: 'Defending',
+    intensity: 'very soft',
     skillsString: '5,13,15,25',
     skills: [
       5,
@@ -195,6 +210,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 16,
     name: 'hold the line',
     area: 'Defending',
+    intensity: 'medium',
     skillsString: '5,10,12,13',
     skills: [
       5,
@@ -207,6 +223,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 17,
     name: 'warm-up',
     area: 'Body and mental',
+    intensity: 'very soft',
     skillsString: '1,14,21,23',
     skills: [
       1,
@@ -219,6 +236,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 18,
     name: 'stretch',
     area: 'Body and mental',
+    intensity: 'soft',
     skillsString: '2,21,22,24',
     skills: [
       2,
@@ -231,6 +249,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 19,
     name: 'sprint',
     area: 'Body and mental',
+    intensity: 'very hard',
     skillsString: '4,17,21,24',
     skills: [
       4,
@@ -243,6 +262,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 20,
     name: 'carioca with ladders',
     area: 'Body and mental',
+    intensity: 'soft',
     skillsString: '2,10,23,24',
     skills: [
       2,
@@ -255,6 +275,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 21,
     name: 'long run',
     area: 'Body and mental',
+    intensity: 'medium',
     skillsString: '10,21,24',
     skills: [
       10,
@@ -266,6 +287,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 22,
     name: 'gym',
     area: 'Body and mental',
+    intensity: 'hard',
     skillsString: '6,7,21,22',
     skills: [
       6,
@@ -278,6 +300,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 23,
     name: 'shuttle runs',
     area: 'Body and mental',
+    intensity: 'hard',
     skillsString: null,
     skills: []
   },
@@ -285,6 +308,7 @@ export const allTrainingSessions: TrainingSession[] = [
     id: 24,
     name: 'hurdle jumps',
     area: 'Body and mental',
+    intensity: 'hard',
     skillsString: null,
     skills: []
   }

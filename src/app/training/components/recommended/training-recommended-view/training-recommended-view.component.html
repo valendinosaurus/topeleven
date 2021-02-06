@@ -14,10 +14,12 @@
   </div>
 
   <div class="training-recommended-view__content">
-    <ng-container *ngFor="let drill of drillSequence.trainingSessions">
-      <p>
-        {{ drill }}
-      </p>
-    </ng-container>
+    <ol class="training-recommended-view__drills">
+      <ng-container *ngFor="let drill of drillSequence.trainingSessions">
+        <li class="training-recommended-view__drill">
+          {{ drill }}
+        </li>
+      </ng-container>
+    </ol>
   </div>
 </div>

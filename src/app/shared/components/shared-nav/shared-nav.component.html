@@ -45,6 +45,11 @@
         Training
       </div>
     </a>
+    <a [routerLink]="['/about']" (click)="toggleMenu()">
+      <div class="shared-nav__item">
+        About
+      </div>
+    </a>
     <a 
       *ngIf="!(loggedIn$ | async)"
       href="#"

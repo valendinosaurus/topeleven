@@ -28,9 +28,10 @@ export class Ng2ChartsService {
 
   mapSnapshotDataForNg2Chart(
     snaphsots: Snapshot[],
-    chartType: string
+    chartType: string,
+    skillType: 'mpw' | 'ws' | 'te'
   ): Ng2ChartData {
-    const data = this.mapSnapshotsToData(snaphsots);
+    const data = this.mapSnapshotsToData(snaphsots, skillType);
 
     const colors = this.colors
       .sort(() => .5 - Math.random());
@@ -42,7 +43,10 @@ export class Ng2ChartsService {
     );
   }
 
-  mapSnapshotsToData(snapshots: Snapshot[]): ChartDataSets[] {
+  mapSnapshotsToData(
+    snapshots: Snapshot[],
+    skillType: 'mpw' | 'ws' | 'te'
+  ): ChartDataSets[] {
     const chartData: ChartDataSets[] = [];
     const names: string[] = [];
 
@@ -71,7 +75,13 @@ export class Ng2ChartsService {
         const namesNotPresent: string[] = names.filter(n => !snapshot.values.map(s => s.name).includes(n));
 
         snapshot.values.forEach(
-          (element: SnapshotElement) => chartData.find(d => d.label === element.name).data.push(element.whiteskill)
+          (element: SnapshotElement) => chartData.find(d => d.label === element.name).data.push(
+            skillType === 'mpw'
+              ? element.position
+              : skillType === 'ws'
+                ? element.whiteskill
+                : element.topeleven
+          )
         );
 
         namesNotPresent.forEach(
@@ -117,6 +127,7 @@ export class Ng2ChartsService {
         responsive: true,
         aspectRatio: window.innerWidth > 800 ? 2.4 : 1,
         maintainAspectRatio: true,
+        lineTension: 0,
         legend: {
           position: 'bottom'
         },

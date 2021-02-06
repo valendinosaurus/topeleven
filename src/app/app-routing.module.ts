@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutPageComponent } from './about/about-page/about-page.component';
 import { MyPlayersPageComponent } from './my-players/page/my-players-page.component';
 import { MyTeamPageComponent } from './my-team/page/my-team-page.component';
 import { LoginGuard } from './shared/guards/login.guard';
@@ -26,8 +27,12 @@ const routes: Routes = [
     component: TrainingPageComponent
   },
   {
+    path: 'about',
+    component: AboutPageComponent
+  },
+  {
     path: '',
-    redirectTo: 'training',
+    redirectTo: 'about',
     pathMatch: 'full'
   }
 ];
