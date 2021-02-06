@@ -1,0 +1,67 @@
+<div class="my-team-drag-drop-list">
+
+  <div class="my-team-drag-drop-list__stats">
+    <div class="my-team-drag-drop-list__stat">
+      <h2 class="my-team-drag-drop-list__stat-header">
+        Starting White Skill %
+      </h2>
+      <h1 class="my-team-drag-drop-list__stat-value">
+        {{ getStartingValue() }}%
+      </h1>
+    </div>
+    
+    <div class="my-team-drag-drop-list__stat my-team-drag-drop-list__stat--overall">
+      <h2 class="my-team-drag-drop-list__stat-header">
+        Overall White Skill %
+      </h2>
+      <h1 class="my-team-drag-drop-list__stat-value">
+        {{ getOverallValue() }}%
+      </h1>
+    </div>
+    
+    <div class="my-team-drag-drop-list__stat-button">
+      <ng-container *ngTemplateOutlet="seasonButton"></ng-container>
+    </div>
+
+    <div class="my-team-drag-drop-list__stat-button">
+      <ng-container *ngTemplateOutlet="snapshotButton"></ng-container>
+    </div>
+    
+  </div>
+
+  <div class="my-team-drag-drop-list__list" cdkDropList (cdkDropListDropped)="drop($event)">   
+    <ng-container *ngFor="let player of players">
+      <app-my-team-player-panel 
+        class="drag-drop-list-item"
+        [player]="player"
+        [allPositions]="allPositions"
+        cdkDrag
+      >
+      </app-my-team-player-panel>
+    </ng-container>
+  </div>
+</div>
+
+<div class="my-team-drag-drop-list__mobile-buttons">
+  <ng-container *ngTemplateOutlet="seasonButton"></ng-container>
+
+  <ng-container *ngTemplateOutlet="snapshotButton"></ng-container>
+</div>
+
+<ng-template #seasonButton>
+  <button 
+    class="my-team__new-player-hint"
+    (click)="nextSeason()"
+    mat-raised-button
+    color="primary"
+  >
+    NEXT SAISON
+  </button>
+</ng-template>
+
+<ng-template #snapshotButton>
+  <app-my-team-new-snapshot-button *ngIf="userId"
+    [allPlayers]="players"
+    [userId]="userId"
+  ></app-my-team-new-snapshot-button>
+</ng-template>

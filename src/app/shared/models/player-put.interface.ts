@@ -30,4 +30,5 @@ export interface PlayerPut {
   speed: number;
   creativity: number;
   user: string;
+  age: number;
 }

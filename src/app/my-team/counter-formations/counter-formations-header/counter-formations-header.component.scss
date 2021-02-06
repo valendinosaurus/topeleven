@@ -1,0 +1,25 @@
+@import '~src/global-styles/colors.scss';
+$mobile-breakpoint: 800px;
+
+.counter-formation-header {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: solid 1px $color-primary;
+  display: flex;
+  justify-content: space-between;
+
+  &__header {
+    color: solid 1px $color-primary;
+    font-weight: bold;
+    margin: 0;
+
+    &--right {
+      text-align: right;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 12px;
+      margin-top: 24px;
+    }
+  }
+}

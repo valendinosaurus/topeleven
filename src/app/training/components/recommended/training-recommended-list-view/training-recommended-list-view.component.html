@@ -1,0 +1,46 @@
+
+<div class="training-recommended-list">
+  <div class="training-recommended-list__filter">
+    <app-shared-simple-position-checkboxes
+      [allPositions]="allPositions"
+      (positionsSelected)="filterByPositions($event)"
+    ></app-shared-simple-position-checkboxes>
+  </div>
+
+  <div class="training-recommended-list__mode mt-3 mb-3">
+    <mat-radio-group 
+      [(ngModel)]="mode"
+      aria-label="Select an option"
+    >
+      <mat-radio-button value="normal">
+        Normal Training
+      </mat-radio-button>
+      <mat-radio-button value="power">
+        Power Training
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="row training-recommended-list__row">
+    <ng-container *ngIf="mode === 'normal'; else powerView">
+      <ng-container *ngFor="let item of filteredDrillSequences$ | async">
+        <div class="col-6 col-lg-4 col-xl-3">
+          <app-training-recommended-view
+            [drillSequence]="item"
+          ></app-training-recommended-view>
+        </div>
+      </ng-container>
+    </ng-container>
+  
+    <ng-template #powerView>
+      <ng-container *ngFor="let item of filteredPowerDrillSequences$ | async">
+        <div class="col-6 col-lg-4 col-xl-3">
+          <app-training-recommended-view
+            [drillSequence]="item"
+          ></app-training-recommended-view>
+        </div>
+      </ng-container>
+    </ng-template>
+  </div>
+
+</div>

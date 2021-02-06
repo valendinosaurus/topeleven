@@ -1,0 +1,28 @@
+.counter-formation-list-view {
+  padding-top: 20px;
+
+  &__filter {
+    display: flex;
+    align-items: center;
+  }
+
+  &__filter-input {
+    margin-right: 40px;
+  }
+
+  &__radio-group {
+    display: block;
+    align-items: center;
+  }
+
+  &__label {
+    font-weight: 500;
+    margin-right: 12px;
+    text-transform: uppercase;
+  }
+
+  &__radio-button {
+    margin-right: 12px;
+  }
+  
+}

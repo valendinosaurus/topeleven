@@ -1,0 +1,14 @@
+.my-team-development {
+  padding-top: 20px;
+  
+  &__graph-wrapper {
+    height: 60vh;
+    width: 100%;
+    padding-top: 24px;
+
+    @media (max-width: 500px) {
+      height: 100vh;
+    }
+  }
+}
+

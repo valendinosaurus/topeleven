@@ -7,13 +7,14 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+// @include mat-core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $topeleven-primary: mat-palette($mat-indigo);
-$topeleven-accent: mat-palette($mat-pink, A200, A100, A400);
+$topeleven-accent: mat-palette($mat-amber, A200, A100, A400);
+$mobile-breakpoint: 800px;
 
 // The warn palette is optional (defaults to red).
 $topeleven-warn: mat-palette($mat-red);
@@ -32,6 +33,7 @@ $topeleven-theme: mat-light-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($topeleven-theme);
+@import 'notyf/notyf.min.css';
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -51,10 +53,9 @@ body {
   max-width: 1280px;
   margin: auto;
 
-  @media (max-width: 500px) {
+  @media (max-width: $mobile-breakpoint) {
     padding: 8px;
-    padding-right: 16px;
-    padding-top: 80px;
+    padding-top: 60px;
   }
 }
 
@@ -67,6 +68,10 @@ body {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   margin-bottom: 30px;
   overflow: hidden;
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 12px;
+  }
 }
 
 .custom-input {
@@ -91,12 +96,35 @@ body {
 .pl-16 {
   padding-left: 16px;
   
-  @media (max-width: 500px) {
+  @media (max-width: $mobile-breakpoint) {
     padding-left: 10px;
   }
 }
 
-.main-header {
-  font-size: 32px !important;
-  font-weight: 500 !important;
+.skill {
+  background: rgba($color-secondary, 0.5);
+  color: $color-primary;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 4px;
+  padding: 2px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 8px;
+
+  @media (max-width: $mobile-breakpoint){
+    text-align: center  !important;
+  }
+}
+
+.mat-radio-button {
+  margin-right: 24px;
+
+  @media (max-width: $mobile-breakpoint) {
+    width: 100%;
+  }
 }

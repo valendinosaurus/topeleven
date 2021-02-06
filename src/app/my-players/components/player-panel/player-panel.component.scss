@@ -9,12 +9,24 @@
     display: flex;
   }
 
+  &__age-wrapper {
+    padding: 16px;
+  }
+
+  &__age {
+    font-size: 24px;
+  }
+
   &__skills {
     height: 0;
     transition: height 200ms ease-out;
 
     &.toggled {
-      height: 166px;
+      height: 186px;
+
+      @media (max-width: 500px) {
+        height: 126px;
+      }
     }
   }
 

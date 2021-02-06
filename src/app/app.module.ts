@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
@@ -25,7 +26,9 @@ import { WhiteSkillsModule } from './white-skills/white-skills.module';
     TrainingModule,
     AuthModule.forRoot({
       domain: 'hb-imhotapp.eu.auth0.com',
-      clientId: 'SaxHAdQyAn1G6Otc1PNsbj6vS1kBMi7a'
+      clientId: 'SaxHAdQyAn1G6Otc1PNsbj6vS1kBMi7a',
+      useRefreshTokens: true,
+      cacheLocation: 'localstorage'
     })
   ],
   providers: [
@@ -33,7 +36,8 @@ import { WhiteSkillsModule } from './white-skills/white-skills.module';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

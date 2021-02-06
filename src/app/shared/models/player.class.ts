@@ -31,6 +31,7 @@ export class Player {
   speed: SkillValueObject;
   creativity: SkillValueObject;
   user: string;
+  age: number;
 
   constructor(
     id: number,
@@ -62,7 +63,8 @@ export class Player {
     strength: SkillValueObject,
     aggression: SkillValueObject,
     speed: SkillValueObject,
-    creativity: SkillValueObject
+    creativity: SkillValueObject,
+    age: number
   ) {
     this.id = id;
     this.name = name;
@@ -94,6 +96,7 @@ export class Player {
     this.aggression = aggression;
     this.speed = speed;
     this.creativity = creativity;
+    this.age = age;
   }
 
   isGoalkeeper(): boolean {

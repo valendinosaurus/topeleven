@@ -1,11 +1,25 @@
 <mat-tab-group>
-  <mat-tab label="Nach Trainingseinheit">
-    <app-training-training-list-view
+  <mat-tab label="Session">
+    <app-training-per-session-list-view
       [allPositions$]="allPositions$"
       [allSkills$]="allSkills$"
-    ></app-training-training-list-view>
+    ></app-training-per-session-list-view>
   </mat-tab>
-  <mat-tab label="Nach Position">
-    <app-training-position-list-view></app-training-position-list-view>
+  <mat-tab label="Position">
+    <app-training-per-position-list-view
+      [allPositions$]="allPositions$"
+      [allSkills$]="allSkills$"
+    ></app-training-per-position-list-view>
+  </mat-tab>
+  <mat-tab label="Skills">
+    <app-training-per-skill-list-view
+      [allSkills$]="allSkills$"
+    ></app-training-per-skill-list-view>
+  </mat-tab>
+  <mat-tab label="Sequences">
+    <app-training-recommended-list-view 
+      *ngIf="allPositions$ | async as positions"
+      [allPositions]="positions"
+    ></app-training-recommended-list-view>
   </mat-tab>
 </mat-tab-group>

@@ -224,7 +224,8 @@ export class PlayerService {
             +player.mainPosition,
             allPositions,
             25
-          )
+          ),
+          +player.age
         );
       }
     );
@@ -295,7 +296,8 @@ export class PlayerService {
       this.getEmptySkillValueObject('strength'),
       this.getEmptySkillValueObject('aggression'),
       this.getEmptySkillValueObject('speed'),
-      this.getEmptySkillValueObject('creativity')
+      this.getEmptySkillValueObject('creativity'),
+      18
     );
   }
 

@@ -1,0 +1,21 @@
+<div class="training-per-session-list">
+  <div class="training-per-session-list__filter">
+    <app-shared-simple-position-checkboxes
+      *ngIf="allPositions$ | async as positions"
+      [allPositions]="positions"
+      (positionsSelected)="filterByPositions($event)"
+  ></app-shared-simple-position-checkboxes>
+  </div>
+
+  <div class="row training-per-session-list__row">
+    <ng-container *ngFor="let item of combinedObjects$ | async">
+      <div class="col-12 col-lg-6 col-xl-4">
+        <app-training-per-session-view 
+          [combinedObject]="item"
+          [selectedPositions]="selectedPositions$ | async"
+        ></app-training-per-session-view>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
