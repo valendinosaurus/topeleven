@@ -34,7 +34,7 @@ export const allFormations: Formation[] = [
   {
     formationName: '3N-4-3',
     counterAttacking: '3-5-2 F',
-    counterNeutral: '4-3N-2W-1 / 4-4-2',
+    counterNeutral: '4-3N-2W-1<br/><br/>4-4-2',
     counterDefensive: '5-4-1 F'
   },
   {
@@ -58,13 +58,13 @@ export const allFormations: Formation[] = [
   {
     formationName: '3N-5-2 V',
     counterAttacking: '3-1-3N-3',
-    counterNeutral: '4-3N-2W-1 / 4-2-2-2 H',
+    counterNeutral: '4-3N-2W-1<br/><br/>4-2-2-2 H',
     counterDefensive: '5C-2-2-1 B'
   },
   {
     formationName: '3W-5-2 V',
     counterAttacking: '3-1-3N-1-2',
-    counterNeutral: '4-2-2-2 H / 4-3N-1-2',
+    counterNeutral: '4-2-2-2 H<br/><br/>4-3N-1-2',
     counterDefensive: '5C-2-2-1 B'
   },
   {
@@ -76,13 +76,13 @@ export const allFormations: Formation[] = [
   {
     formationName: '3N-2(DM/M)-3W-2',
     counterAttacking: '3-1-4-2',
-    counterNeutral: '4-1-2-1-2 ND / 4-4-2',
+    counterNeutral: '4-1-2-1-2 ND<br/><br/>4-4-2',
     counterDefensive: '5C-2-2-1 B'
   },
   {
     formationName: '3W-2(DM/M)-3W-2',
     counterAttacking: '3-1-4-2',
-    counterNeutral: '4-4-2 / 4-3-3',
+    counterNeutral: '4-4-2<br/><br/>4-3-3',
     counterDefensive: '5C-2-2-1 B'
   },
   {
@@ -118,7 +118,7 @@ export const allFormations: Formation[] = [
   {
     formationName: '3N-1-2-1-3',
     counterAttacking: '3-1-3N-1-2',
-    counterNeutral: '4-1-3N-2 / 4-5-1 V',
+    counterNeutral: '4-1-3N-2<br/><br/>4-5-1 V',
     counterDefensive: '5C-3W-1'
   },
   {
@@ -148,7 +148,7 @@ export const allFormations: Formation[] = [
   {
     formationName: '3N-1-3W-1-2 D',
     counterAttacking: '3-5-1-1 V',
-    counterNeutral: '4-5-1 V / 4-4-2 / 4-1-2W-1-2',
+    counterNeutral: '4-5-1 V<br/><br/>4-4-2<br/><br/>4-1-2W-1-2',
     counterDefensive: '3N-3W-2N-1-1'
   },
   {
@@ -178,14 +178,14 @@ export const allFormations: Formation[] = [
 
   {
     formationName: '4-5-1 F',
-    counterAttacking: '3-5-2 F / 3-5-2 V',
+    counterAttacking: '3-5-2 F<br/><br/>3-5-2 V',
     counterNeutral: '4-1-4-1',
     counterDefensive: '5C-3N-1-1'
   },
   {
     formationName: '4-5-1 V',
-    counterAttacking: '3-3-1-3 / 3W-1-2-3W-1',
-    counterNeutral: '4-3N-3 / 4-3N-2W-1',
+    counterAttacking: '3-3-1-3<br/><br/>3W-1-2-3W-1',
+    counterNeutral: '4-3N-3<br/><br/>4-3N-2W-1',
     counterDefensive: '5C-3N-2'
   },
   {
@@ -245,7 +245,7 @@ export const allFormations: Formation[] = [
   {
     formationName: '4-3W-3',
     counterAttacking: '3-5-1-1 V',
-    counterNeutral: '4-5-1 V / 4-4-2',
+    counterNeutral: '4-5-1 V<br/><br/>4-4-2',
     counterDefensive: '5-4-1 F'
   },
   {
@@ -269,7 +269,7 @@ export const allFormations: Formation[] = [
   {
     formationName: '4-1-3W-2',
     counterAttacking: '3-1-4-2',
-    counterNeutral: '4-5-1 V / 4-4-2',
+    counterNeutral: '4-5-1 V<br/><br/>4-4-2',
     counterDefensive: '5C-2-2-1 B'
   },
   {
@@ -299,7 +299,7 @@ export const allFormations: Formation[] = [
   {
     formationName: '4-3N-1-2',
     counterAttacking: '3-1-3N-2W-1',
-    counterNeutral: '4-3N-2W-1 / 4-5-1 V',
+    counterNeutral: '4-3N-2W-1<br/><br/>4-5-1 V',
     counterDefensive: '5C-2-2-1 B'
   },
   {
@@ -328,7 +328,7 @@ export const allFormations: Formation[] = [
   },
   {
     formationName: '4-2-2-2 H',
-    counterAttacking: '3N-4-3 / 3N-4-1-2',
+    counterAttacking: '3N-4-3<br/><br/>3N-4-1-2',
     counterNeutral: '4-5-1 V',
     counterDefensive: '5C-2-2-1 B'
   },
@@ -347,13 +347,13 @@ export const allFormations: Formation[] = [
   {
     formationName: '4-2-3-1',
     counterAttacking: '3-1-3N-2W-1',
-    counterNeutral: '4-3N-2W-1 / 4-5-1 V',
+    counterNeutral: '4-3N-2W-1<br/><br/>4-5-1 V',
     counterDefensive: '5C-2-2-1 B'
   },
   {
     formationName: '4-1-4-1',
     counterAttacking: '3-5-2 V',
-    counterNeutral: '4-3N-2W-1 / 4-5-1 V',
+    counterNeutral: '4-3N-2W-1<br/><br/>4-5-1 V',
     counterDefensive: '5C-2-2-1 B'
   },
   {
@@ -418,7 +418,7 @@ export const allFormations: Formation[] = [
   },
   {
     formationName: '5-2-2N-1',
-    counterAttacking: '3N-1-3W-2 / 3N-1-3W-2',
+    counterAttacking: '3N-1-3W-2<br/><br/>3N-1-3W-2',
     counterNeutral: '4-2-2-1-1',
     counterDefensive: '3W-2-3W-2'
   },
@@ -431,25 +431,25 @@ export const allFormations: Formation[] = [
   {
     formationName: '5-1-1-1-2',
     counterAttacking: '3N-1-3W-1-2',
-    counterNeutral: '4-3N-3 F / 4-2-2-2 H',
+    counterNeutral: '4-3N-3 F<br/><br/>4-2-2-2 H',
     counterDefensive: '5C-2N-1-2'
   },
   {
     formationName: '5C-3N-2',
     counterAttacking: '3-5-2 F',
-    counterNeutral: '4-5-1 F / 4-1-2-1-2 ND',
+    counterNeutral: '4-5-1 F<br/><br/>4-1-2-1-2 ND',
     counterDefensive: '5-4-1 F'
   },
   {
     formationName: '5C-2-1-2',
     counterAttacking: '3-4-1-2',
-    counterNeutral: '4-4-2 / 4-1-2-1-2 ND',
+    counterNeutral: '4-4-2<br/><br/>4-1-2-1-2 ND',
     counterDefensive: '3W-3N-3W-1'
   },
   {
     formationName: '5C-2-2-1 B',
     counterAttacking: '3-4-1-2',
-    counterNeutral: '4-2-2-2 / 4-3N-2W-1',
+    counterNeutral: '4-2-2-2<br/><br/>4-3N-2W-1',
     counterDefensive: '3N-3W-2N-1-1'
   }
 ];

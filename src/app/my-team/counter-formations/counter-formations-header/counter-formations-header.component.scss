@@ -1,13 +1,12 @@
 @import '~src/global-styles/colors.scss';
+$mobile-breakpoint: 800px;
 
 .counter-formation-header {
-  width: 80%;
+  width: 100%;
   margin-bottom: 20px;
   border-bottom: solid 1px $color-primary;
-
-  &__row {
-    width: 100%;
-  }
+  display: flex;
+  justify-content: space-between;
 
   &__header {
     color: solid 1px $color-primary;
@@ -16,6 +15,11 @@
 
     &--right {
       text-align: right;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 12px;
+      margin-top: 24px;
     }
   }
 }

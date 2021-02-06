@@ -45,8 +45,7 @@ import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple
     MatTabsModule,
     MatProgressSpinnerModule,
     ChartsModule,
-    MatRadioModule,
-    MatInputModule
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -68,8 +67,7 @@ import { SharedSimpleSkillCheckboxesComponent } from './components/shared-simple
     SharedSimplePositionCheckboxesComponent,
     SharedSimpleSkillCheckboxesComponent,
     ChartsModule,
-    MatRadioModule,
-    MatInputModule
+    MatRadioModule
   ]
 })
 export class SharedModule { }

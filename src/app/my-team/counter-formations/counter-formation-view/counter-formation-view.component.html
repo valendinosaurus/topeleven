@@ -1,30 +1,34 @@
 <div class="counter-formation-view tile">
-  <div class="row counter-formation-view__row">
-    <div class="col-md-5">
-      <p class="counter-formation-view__formation">
-        {{ formation.formationName }}
-      </p>
-    </div>
-    <div class="col-md-1">
-      <mat-icon>
-        double_arrow
-      </mat-icon>
-    </div>
-    <div class="col-md-6" *ngIf="mentality === 'offensive'">
-      <p class="counter-formation-view__formation counter-formation-view__formation--counter">
-        {{ formation.counterAttacking }}
-      </p>
-    </div>
-    <div class="col-md-6" *ngIf="mentality === 'neutral'">
-      <p class="counter-formation-view__formation counter-formation-view__formation--counter">
-        {{ formation.counterNeutral }}
-      </p>
-    </div>
-    <div class="col-md-6" *ngIf="mentality === 'defensive'">
-      <p class="counter-formation-view__formation counter-formation-view__formation--counter">
-        {{ formation.counterDefensive }}
-      </p>
-    </div>
+  <div 
+    class="counter-formation-view__formation"
+    [innerHTML]="formation.counterAttacking"
+  >
+    {{ formation.formationName }}
+  </div>
+  
+  <mat-icon class="counter-formation-view__icon">
+    double_arrow
+  </mat-icon>
+
+  <div  
+    *ngIf="mentality === 'offensive'"
+    class="counter-formation-view__formation counter-formation-view__formation--counter"
+    [innerHTML]="formation.counterAttacking"
+  >
+  </div>
+
+  <div 
+    *ngIf="mentality === 'neutral'"
+    class="counter-formation-view__formation counter-formation-view__formation--counter"
+    [innerHTML]="formation.counterNeutral"
+  >
+  </div>
+
+  <div  
+    *ngIf="mentality === 'defensive'"
+    class="counter-formation-view__formation counter-formation-view__formation--counter"
+    [innerHTML]="formation.counterDefensive"
+  >
   </div>
 
 </div>

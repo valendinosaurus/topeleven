@@ -1,16 +1,29 @@
+$mobile-breakpoint: 800px;
+
 .counter-formation-view {
-  width: 80%;
+  width: 100%;
   margin-bottom: 8px;
   padding: 12px;
+  display: flex;
+  justify-content: space-between;
 
   &__formation {
     font-size: 32px;
     margin: 0;
     margin-top: 6px;
     margin-bottom: 4px;
+    width: 45%;
 
     &--counter {
       text-align: right;
     }
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 20px;
+    }
+  }
+
+  &__icon {
+    width: 10%;
   }
 }
