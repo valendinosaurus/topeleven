@@ -35,14 +35,14 @@
         My Team
       </div>
     </a>
-    <!-- a [routerLink]="['/white-skills']">
-      <div class="shared-nav__item">
-        White Skills
-      </div>
-    </a -->
     <a [routerLink]="['/training']" (click)="toggleMenu()">
       <div class="shared-nav__item">
         Training
+      </div>
+    </a>
+    <a [routerLink]="['/counter-formations']" (click)="toggleMenu()">
+      <div class="shared-nav__item">
+        Counter Formations
       </div>
     </a>
     <a [routerLink]="['/about']" (click)="toggleMenu()">
@@ -64,9 +64,11 @@
       href="#"
       (click)="logout()"
     >
-      <div class="shared-nav__item shared-nav__item-logout">
+      <div class="shared-nav__item">
         {{ (user$ | async)?.nickname }} <br>
-        Logout
+        <span class="shared-nav__item-logout">
+          Logout
+        </span>
       </div>
     </a>
   </div>
