@@ -1,17 +1,13 @@
 <mat-tab-group>
-  <mat-tab label="My Team">
+  <mat-tab label="MY TEAM">
     <app-my-team-strength-container
       [userId]="userId$ | async"
     ></app-my-team-strength-container>
   </mat-tab>
 
-  <mat-tab label="Development" *ngIf="userId$ | async as userId">
+  <mat-tab label="DEVELOPMENT" *ngIf="userId$ | async as userId">
     <app-my-team-development
       [userId]="userId"
     ></app-my-team-development>
-  </mat-tab>
-
-  <mat-tab label="Counter Formations">
-    <app-counter-formations-list-view></app-counter-formations-list-view>
   </mat-tab>
 </mat-tab-group>

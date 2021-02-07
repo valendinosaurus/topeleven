@@ -1,0 +1,274 @@
+<div class="about-page">
+
+  <div 
+    class="about-page__toggable-title"
+    (click)="toggleSection(0)"
+  >
+    <mat-icon
+      [class.about-page__icon--toggled]="sectionsToggled[0]"
+    >
+      expand_more
+    </mat-icon>
+    <h1>
+      1. My Players
+    </h1>
+  </div>
+
+  <div 
+    class="about-page__expandable-content"
+    [class.about-page__expandable-content--toggled]="sectionsToggled[0]"  
+  >
+    <p>
+      On this page, you can create your players and modify them whenever you want.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/my-players.png"
+    />
+    <p>
+      To start, click the button new player
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--button"
+      src="assets/img/about/my-player-create-button.png"
+    />
+    <p>   
+      You can set his name and his learned positions and click "create".
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--tile"
+      src="assets/img/about/my-player-create.png"
+    />
+    <p>
+      The player gets initialized with all skill values set to 100 and an age of 18.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--tile"
+      src="assets/img/about/my-player-panel.png"
+    />
+    <p>
+      Click edit on the player to adjust his age and skill values and confirm with the check icon. 
+      You can also delete created players.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--tile"
+      src="assets/img/about/my-player-edit.png"
+    />
+    <p>
+      <b>Main position</b> is the position your player is effectively playing on the field. If a player
+      has roles DC and DL, but you mostly play him as DL, set DL as his main position. It will then display
+      the white skills correctly without involving the ones from the other positions.
+    </p>
+    <p>
+      <b>Effective %</b> is the normalized strength considering only white skills of his main position. These
+      effective white skills are the white ones.
+    </p>
+    <p>
+      <b>White skill %</b> is the normalized strength considering all white skills. This can differ as soon as 
+      a player has more than 1 role. These additional skills are displayed slightly gray.
+    </p>
+    <p>
+      <b>Top Eleven %</b> is the strength displayed in Top Eleven itself, where all skills are considered.
+    </p>
+    <p>
+      You can see the differences in calculation in following example, where TopEleven would display a strength
+      of 251%. If you look only at his white skills, it's already 290%. And if you consider that you will play
+      this player only as a DC, he's even up to 333%! 
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--tile"
+      src="assets/img/about/my-player-example.png"
+    />
+  </div>
+
+  <div 
+    class="about-page__toggable-title"
+    (click)="toggleSection(1)"
+  >
+    <mat-icon
+      [class.about-page__icon--toggled]="sectionsToggled[1]"
+    >
+      expand_more
+    </mat-icon>
+    <h1>
+      2. My Team
+    </h1>
+  </div>
+
+  <div 
+    class="about-page__expandable-content"
+    [class.about-page__expandable-content--toggled]="sectionsToggled[1]"  
+  >
+    <h2>
+      a) Tab "My Players"
+    </h2>
+    <p>
+      This section allows you to calculate the effective strength of the 11 players you put on the field.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/my-team-team.png"
+    />
+    <p>
+      You can drag and drop the players up and down. All 11 players above dotted line are included in
+      the caluclated overall strength.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--tile"
+      src="assets/img/about/my-team-team-strength.png"
+    />
+    <p>
+      When finishing in the top 8 of the season, just click "NEXT LEVEL", and your player's skills 
+      will drop by 20% and their age gets incremented by one year. 
+    </p>
+    <img 
+      class="about-page__screenshot"
+      src="assets/img/about/my-team-team-btn-nxt-season.png"
+    />
+    <p>
+      Whenever you want, create a snapshot of your team by clicking "CREATE SNAPSHOT". This stores the current 
+      skill values of your players in the database for a specific date and will be used in the display of their
+      skill development (see further below). 
+    </p>
+    <img 
+      class="about-page__screenshot"
+      src="assets/img/about/my-team-team-btn-snapshot.png"
+    />
+
+    <h2>
+      b) Tab "Development"
+    </h2>
+    <p>
+      Displays the created team snapshots as graph to visualize the players skill development. You can choose if you
+      want to display either of the three types of strengths (as described under "My Players").
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/my-team-development.png"
+    />
+    <p>
+      <b>Note:</b> if you click "NEXT LEVEL", two snapshots are automatically created; one just before the skill drop,
+      and one right afterwards. This allows you to quickly see the season transitions in the grpah. 
+    </p>
+    <p>
+      <b>Tipp:</b> Create 2-3 snapshots during a season for best results. Also, try to update the skills as accurate as possible
+      before the end of a season. 
+    </p>
+
+  </div>
+
+
+  <div 
+    class="about-page__toggable-title"
+    (click)="toggleSection(2)"
+  >
+    <mat-icon
+      [class.about-page__icon--toggled]="sectionsToggled[2]"
+    >
+      expand_more
+    </mat-icon>
+    <h1>
+      3. training
+    </h1>
+  </div>
+
+  <div 
+    class="about-page__expandable-content"
+    [class.about-page__expandable-content--toggled]="sectionsToggled[2]"  
+    >
+    <h2>a) Tab "Session"</h2>
+    <p>
+      Displays the percentual efficiency of a given training session for each position.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/training-session.png"
+    />
+    <p>
+      Each panel generally shows which skills are trained. Below, for each position, it shows the 
+      affected white skills for that specific position. The percentage is the ratio of position white
+      skills to all trained white skills.<br>
+      <b>Note:</b> a value of 100% does NOT mean that this session trains ALL white skills, but that
+      all trained skills are white skills of the specific position.<br>
+      <b>Example:</b> "Pass Go and Shoot" trains 4 skills and has 75% efficiency for MC. That means, that
+      out of the 4 trained skills, 3 are MC white skills. MC might have more white skills, that are not in
+      the scope of "Pass Go and Shoot".
+    </p>
+    <p>
+       You can filter out desired positions and display just those selected with the filter on top.
+    </p>
+
+    <h2>b) Tab "Position"</h2>
+    <p>
+      Displays the percentual efficiency of each training session for a given position.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/training-position.png"
+    />
+    <p>
+      Each panel lists all training sessions, which affect at least one white skill of that position.
+      The training sessions are sorted by most efficient first. The percentage is the ratio of trained
+      white skills to all white skills of that position. The number in brackets is the number of non 
+      white skills, which get trained in addition.<br>
+      <b>Example:</b> "Gym" has 28% and (+1) for GK. This means that "Gym" trains 28% of all GK white
+      skills and furthermore trains 1 skill, that is not a white skill for GK.
+    </p>
+    <p>
+       You can filter out desired positions and display just those selected with the filter on top.
+    </p>
+
+    <h2>c) Tab "Skills"</h2>
+    <p>
+      Displays the training sessions which train one ore more selected skills.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/training-skills.png"
+    />
+    <p>
+      You have to select at least one skill to display some data. Once done, it shows every training
+      session that includes the selected skills, as well as all other skills trained by this session.
+    </p>
+
+    <h2>d) Tab "Drills"</h2>
+    <p>
+      Displays the recommended training sequences provided by Discords bot. You can switch betwenn normal
+      and power training mode.
+    </p>
+    <img 
+      class="about-page__screenshot about-page__screenshot--fullscreen"
+      src="assets/img/about/training-drills.png"
+    />
+
+  </div>
+
+
+  <div 
+    class="about-page__toggable-title"
+    (click)="toggleSection(3)"
+  >
+    <mat-icon
+      [class.about-page__icon--toggled]="sectionsToggled[3]"
+    >
+      expand_more
+    </mat-icon>
+    <h1>
+      4. Counter formations
+    </h1>
+  </div>
+
+  <div 
+    class="about-page__expandable-content"
+    [class.about-page__expandable-content--toggled]="sectionsToggled[3]"  
+  >
+    <p>
+      Displays the recommended counter formations provided by Discords bot, separated by mentality (offensive,
+      neutral, defensive). You can also filter by your opponents formation to better access the desired data.<br/>
+      <b>Note: </b> the filter applies only to numbers, all other characters are ignored.
+    </p>
+  </div>
+
+
+
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutPageComponent } from './about/about-page/about-page.component';
+import { AboutPageComponent } from './about/page/about-page.component';
+import { CounterFormationPageComponent } from './counter-formations/page/counter-formation-page.component';
 import { MyPlayersPageComponent } from './my-players/page/my-players-page.component';
 import { MyTeamPageComponent } from './my-team/page/my-team-page.component';
 import { LoginGuard } from './shared/guards/login.guard';
@@ -27,11 +28,20 @@ const routes: Routes = [
     component: TrainingPageComponent
   },
   {
+    path: 'counter-formations',
+    component: CounterFormationPageComponent
+  },
+  {
     path: 'about',
     component: AboutPageComponent
   },
   {
     path: '',
+    redirectTo: 'about',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
     redirectTo: 'about',
     pathMatch: 'full'
   }
