@@ -1,3 +1,4 @@
+@import '~src/global-styles/colors.scss';
 $mobile-breakpoint: 800px;
 
 .my-team-drag-drop-list {
@@ -133,7 +134,7 @@ $mobile-breakpoint: 800px;
 }
 
 .drag-drop-list-item:nth-child(11) {
-  border-bottom: solid 4px black;
+  border-bottom: dashed 4px $color-primary;
 }
 
 .my-team-drag-drop-list.cdk-drop-list-dragging .drag-drop-list-item:not(.cdk-drag-placeholder) {
