@@ -25,29 +25,54 @@
     <h1 class="shared-nav__title">
       TopEleven Manager
     </h1>
-    <a [routerLink]="['/my-players']" (click)="toggleMenu()">
+    <a 
+      *ngIf="(loggedIn$ | async)"
+      [routerLink]="['/my-players']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        <p>My Players</p>
+        <p>
+          My Players
+        </p>
       </div>
     </a>
-    <a [routerLink]="['/my-team']" (click)="toggleMenu()">
+    <a 
+      *ngIf="(loggedIn$ | async)"
+      [routerLink]="['/my-team']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        <p>My Team</p>
+        <p>
+          My Team
+        </p>
       </div>
     </a>
-    <a [routerLink]="['/training']" (click)="toggleMenu()">
+    <a 
+      [routerLink]="['/training']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
         <p>Training</p>
       </div>
     </a>
-    <a [routerLink]="['/counter-formations']" (click)="toggleMenu()">
+    <a 
+      [routerLink]="['/counter-formations']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        <p>Counter Formations</p>
+        <p>
+          Counter Formations
+        </p>
       </div>
     </a>
-    <a [routerLink]="['/about']" (click)="toggleMenu()">
+    <a 
+      [routerLink]="['/about']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        <p>About</p>
+        <p>
+          About
+        </p>
       </div>
     </a>
     <a 
@@ -56,7 +81,9 @@
       (click)="login($event)"
     >
       <div class="shared-nav__item shared-nav_user-item">
-        <p>Login</p>
+        <p>
+          Login
+        </p>
       </div>
     </a>
     <a 
@@ -67,7 +94,9 @@
       <div class="shared-nav__item shared-nav__user-item">
         {{ (user$ | async)?.nickname }} <br>
         <span class="shared-nav__item-logout">
-          <p>Logout</p>
+          <p>
+            Logout
+          </p>
         </span>
       </div>
     </a>
