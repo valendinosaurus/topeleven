@@ -1,0 +1,31 @@
+.about-page {
+  text-align: center;
+  max-width: 800px;
+  padding: 40px;
+  margin: auto;
+  min-height: 101vh;;
+
+  h2 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  &__expandable-content {
+    &--toggled {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__screenshot {
+    margin-bottom: 36px;
+
+    &--fullscreen {
+      width: 60%;
+    }
+
+    &--tile {
+      width: 40%
+    }
+  }
+}

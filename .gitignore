@@ -9,6 +9,8 @@
 deploy.js
 deploy-htaccess.js
 
+/src/assets/img/about
+
 # dependencies
 /node_modules
 

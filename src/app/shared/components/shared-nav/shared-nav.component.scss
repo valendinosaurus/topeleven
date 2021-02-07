@@ -95,15 +95,36 @@ $mobile-breakpoint: 800px;
     color: $color-secondary;
     margin-left: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+
+    p {
+      margin: 0;
+    }
 
     &:hover {
       color: white;
+    }
+
+    &:not(.shared-nav__user-item) {
+      padding-right: 20px;
+      border-right: solid 1px $color-secondary;
     }
 
     @media (max-width: $mobile-breakpoint) {
       font-size: 16px;
       padding: 12px;
       border-top: solid 1px #4d3e6c;
+      border-right: none;
+    }
+  }
+
+  &__user-item {
+    @media (max-width: $mobile-breakpoint) {
+      height: 52px;
     }
   }
 

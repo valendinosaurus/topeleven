@@ -27,27 +27,27 @@
     </h1>
     <a [routerLink]="['/my-players']" (click)="toggleMenu()">
       <div class="shared-nav__item">
-        My Players
+        <p>My Players</p>
       </div>
     </a>
     <a [routerLink]="['/my-team']" (click)="toggleMenu()">
       <div class="shared-nav__item">
-        My Team
+        <p>My Team</p>
       </div>
     </a>
     <a [routerLink]="['/training']" (click)="toggleMenu()">
       <div class="shared-nav__item">
-        Training
+        <p>Training</p>
       </div>
     </a>
     <a [routerLink]="['/counter-formations']" (click)="toggleMenu()">
       <div class="shared-nav__item">
-        Counter Formations
+        <p>Counter Formations</p>
       </div>
     </a>
     <a [routerLink]="['/about']" (click)="toggleMenu()">
       <div class="shared-nav__item">
-        About
+        <p>About</p>
       </div>
     </a>
     <a 
@@ -55,8 +55,8 @@
       href="#"
       (click)="login($event)"
     >
-      <div class="shared-nav__item">
-        Login
+      <div class="shared-nav__item shared-nav_user-item">
+        <p>Login</p>
       </div>
     </a>
     <a 
@@ -64,10 +64,10 @@
       href="#"
       (click)="logout()"
     >
-      <div class="shared-nav__item">
+      <div class="shared-nav__item shared-nav__user-item">
         {{ (user$ | async)?.nickname }} <br>
         <span class="shared-nav__item-logout">
-          Logout
+          <p>Logout</p>
         </span>
       </div>
     </a>
