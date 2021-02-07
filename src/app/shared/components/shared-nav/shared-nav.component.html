@@ -25,29 +25,54 @@
     <h1 class="shared-nav__title">
       TopEleven Manager
     </h1>
-    <a [routerLink]="['/my-players']" (click)="toggleMenu()">
+    <a 
+      *ngIf="(loggedIn$ | async)"
+      [routerLink]="['/my-players']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        My Players
+        <p>
+          My Players
+        </p>
       </div>
     </a>
-    <a [routerLink]="['/my-team']" (click)="toggleMenu()">
+    <a 
+      *ngIf="(loggedIn$ | async)"
+      [routerLink]="['/my-team']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        My Team
+        <p>
+          My Team
+        </p>
       </div>
     </a>
-    <!-- a [routerLink]="['/white-skills']">
+    <a 
+      [routerLink]="['/training']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        White Skills
-      </div>
-    </a -->
-    <a [routerLink]="['/training']" (click)="toggleMenu()">
-      <div class="shared-nav__item">
-        Training
+        <p>Training</p>
       </div>
     </a>
-    <a [routerLink]="['/about']" (click)="toggleMenu()">
+    <a 
+      [routerLink]="['/counter-formations']" 
+      (click)="toggleMenu()"
+    >
       <div class="shared-nav__item">
-        About
+        <p>
+          Counter Formations
+        </p>
+      </div>
+    </a>
+    <a 
+      [routerLink]="['/about']" 
+      (click)="toggleMenu()"
+    >
+      <div class="shared-nav__item">
+        <p>
+          About
+        </p>
       </div>
     </a>
     <a 
@@ -55,8 +80,10 @@
       href="#"
       (click)="login($event)"
     >
-      <div class="shared-nav__item">
-        Login
+      <div class="shared-nav__item shared-nav_user-item">
+        <p>
+          Login
+        </p>
       </div>
     </a>
     <a 
@@ -64,9 +91,13 @@
       href="#"
       (click)="logout()"
     >
-      <div class="shared-nav__item shared-nav__item-logout">
+      <div class="shared-nav__item shared-nav__user-item">
         {{ (user$ | async)?.nickname }} <br>
-        Logout
+        <span class="shared-nav__item-logout">
+          <p>
+            Logout
+          </p>
+        </span>
       </div>
     </a>
   </div>

@@ -1,22 +1,22 @@
 <mat-tab-group>
-  <mat-tab label="Session">
+  <mat-tab label="SESSION">
     <app-training-per-session-list-view
       [allPositions$]="allPositions$"
       [allSkills$]="allSkills$"
     ></app-training-per-session-list-view>
   </mat-tab>
-  <mat-tab label="Position">
+  <mat-tab label="POSITION">
     <app-training-per-position-list-view
       [allPositions$]="allPositions$"
       [allSkills$]="allSkills$"
     ></app-training-per-position-list-view>
   </mat-tab>
-  <mat-tab label="Skills">
+  <mat-tab label="SKILLS">
     <app-training-per-skill-list-view
       [allSkills$]="allSkills$"
     ></app-training-per-skill-list-view>
   </mat-tab>
-  <mat-tab label="Sequences">
+  <mat-tab label="DRILLS">
     <app-training-recommended-list-view 
       *ngIf="allPositions$ | async as positions"
       [allPositions]="positions"

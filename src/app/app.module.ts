@@ -3,9 +3,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptorService } from './core/auth-interceptor.service';
 import { CoreModule } from './core/core.module';
+import { CounterFormationsModule } from './counter-formations/counter-formations.module';
 import { MyPlayersModule } from './my-players/my-players.module';
 import { MyTeamModule } from './my-team/my-team.module';
 import { SharedModule } from './shared/shared.module';
@@ -22,6 +24,8 @@ import { WhiteSkillsModule } from './white-skills/white-skills.module';
     SharedModule,
     MyPlayersModule,
     MyTeamModule,
+    CounterFormationsModule,
+    AboutModule,
     WhiteSkillsModule,
     TrainingModule,
     AuthModule.forRoot({

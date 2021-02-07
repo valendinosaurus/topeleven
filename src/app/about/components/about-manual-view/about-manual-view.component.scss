@@ -1,0 +1,57 @@
+@import '~src/global-styles/colors.scss';
+
+.about-page {
+  max-width: 800px;
+  padding: 40px;
+  min-height: 101vh;
+
+  &__toggable-title {
+    cursor: pointer;
+    border-bottom: solid 2px #e8f4f8 ;
+    padding-bottom: 4px;
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    &--toggled {
+      transform: rotate(180deg);
+    }
+  }
+
+  h2 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  &__expandable-content {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-left: solid 2px $color-primary;
+    border-right: solid 2px $color-primary;
+
+    &--toggled {
+      height: 0;
+      overflow: hidden;
+      border: none;
+    }
+  }
+
+  &__screenshot {
+    margin-bottom: 36px;
+
+    &--fullscreen {
+      width: 75%;
+    }
+
+    &--tile {
+      width: 40%
+    }
+  }
+}
