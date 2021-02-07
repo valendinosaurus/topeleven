@@ -34,6 +34,10 @@ export class CounterFormationsListViewComponent implements OnInit {
               const normalizedFormation = formation.formationName.replace(/\D/g, '');
               const normalizedArgument = argument.replace(/\D/g, '');
 
+              console.log(normalizedFormation);
+              console.log(normalizedArgument);
+              console.log(normalizedFormation.indexOf(normalizedArgument) > -1);
+
               return normalizedFormation.indexOf(normalizedArgument) > -1;
             }
           )
