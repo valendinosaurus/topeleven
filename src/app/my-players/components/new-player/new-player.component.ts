@@ -90,17 +90,17 @@ export class NewPlayerComponent implements OnChanges {
 
   checkInputs(): boolean {
     if (this.player.name.length === 0) {
-      alert('Bitte einen Namen eingeben');
+      alert('Please enter a name!');
       return false;
     }
 
     if (this.player.positions.length === 0) {
-      alert('Bitte mindestens eine Position wählen');
+      alert('Please choose at least one role!');
       return false;
     }
 
     if (this.player.positions.length > 3) {
-      alert('Ein Spieler kann höchstens 3 Positionen erlernen');
+      alert('A player can have max. 3 roles!');
       return false;
     }
 

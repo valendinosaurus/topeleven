@@ -67,7 +67,7 @@ export class MyTeamDragDropListComponent {
   }
 
   nextSeason(): void {
-    if (confirm('Willst du wirklich weiterfahren? Dieser Schritt kann nicht rückgängig gemacht werden!')) {
+    if (confirm('Do you want to proceed? This step cannot be undone!')) {
 
       let response: HbServerResponse;
 
