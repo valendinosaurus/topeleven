@@ -40,7 +40,7 @@ export class MyTeamStrengthContainerComponent implements OnChanges {
     }
   }
 
-  fetchPlayers(afterNextSeason: boolean): void {
+  fetchPlayers(afterNextLevel: boolean): void {
     this.allPlayers$ = this.allPositions$.pipe(
       switchMap(
         positions => this.playerAPIService.getPlayers(this.userId, positions)
@@ -82,7 +82,7 @@ export class MyTeamStrengthContainerComponent implements OnChanges {
       ),
       switchMap(
         (players: Player[]) =>
-          afterNextSeason
+          afterNextLevel
             ? this.snapshotService.createSnapshotFromPlayers(players, this.userId).pipe(
               switchMap(
                 () => of(players)

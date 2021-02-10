@@ -35,7 +35,6 @@ export class SharedPositionsCheckboxesComponent implements OnInit {
   }
 
   checkPosition(positionId: number, checked: boolean): void {
-
     if (positionId === 1) {
       this.positionsChecked = this.positionsChecked.map(p => ({
         ...p,

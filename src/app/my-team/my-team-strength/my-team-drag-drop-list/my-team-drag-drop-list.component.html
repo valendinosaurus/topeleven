@@ -21,6 +21,7 @@
     
     <div class="my-team-drag-drop-list__stat-button">
       <ng-container *ngTemplateOutlet="seasonButton"></ng-container>
+      <ng-container *ngTemplateOutlet="ageButton"></ng-container>
     </div>
 
     <div class="my-team-drag-drop-list__stat-button">
@@ -44,18 +45,29 @@
 
 <div class="my-team-drag-drop-list__mobile-buttons">
   <ng-container *ngTemplateOutlet="seasonButton"></ng-container>
-
+  <ng-container *ngTemplateOutlet="ageButton"></ng-container>
   <ng-container *ngTemplateOutlet="snapshotButton"></ng-container>
 </div>
 
 <ng-template #seasonButton>
   <button 
-    class="my-team__new-player-hint"
-    (click)="nextSeason()"
+    class="my-team__new-player-hint mr-2"
+    (click)="nextLevel()"
     mat-raised-button
     color="primary"
   >
     NEXT LEVEL
+  </button>
+</ng-template>
+
+<ng-template #ageButton>
+  <button 
+    class="my-team__new-player-hint"
+    (click)="increaseAge()"
+    mat-raised-button
+    color="primary"
+  >
+    +AGE
   </button>
 </ng-template>
 
