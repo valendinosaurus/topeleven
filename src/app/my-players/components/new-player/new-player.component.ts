@@ -47,18 +47,6 @@ export class NewPlayerComponent implements OnChanges {
     }
   }
 
-  checkPosition([
-    positionsChecked,
-    positionId,
-    checked
-  ]: [
-    {id: number; checked: boolean}[],
-    number,
-    boolean
-  ]): void {
-    this.player.positions = this.positionsChecked.filter(p => p.checked).map(p => p.id);
-  }
-
   createNewPlayer(): void {
     if (this.checkInputs()) {
       this.player.mainPosition = this.player.positions[0];
