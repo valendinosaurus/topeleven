@@ -1,5 +1,49 @@
+@import '~src/global-styles/colors.scss';
+$mobile-breakpoint: 800px;
+
 .counter-formation-list-view {
   padding-top: 20px;
+
+  &__legend {
+    display: flex;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    align-items: flex-start;
+  }
+
+  &__legend-item {
+    padding: 8px;
+    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(46, 214, 109, 0.5);
+    color: #2A223B;
+    min-width: 50px;
+    flex: 0 0 auto ;
+
+    @media (max-width: $mobile-breakpoint) {
+      padding: 4px;
+    }
+  }
+
+  &__legend-item-abbr {
+    font-weight: 500;
+    font-size: 18px;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 14px;
+    }
+  }
+
+  &__legend-item-meaning {
+    font-size: 12px;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 10px;
+    }
+  }
 
   &__filter {
     display: flex;
