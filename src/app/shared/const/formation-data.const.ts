@@ -143,7 +143,7 @@ export const allFormations: Formation[] = [
     formationName: '3W-1-3W-1-2',
     counterAttacking: '3N-5-2 F',
     counterNeutral: '4-4-2',
-    counterDefensive: '3W-2N-3-1 ET'
+    counterDefensive: '3W-2N-3-1-1 ET'
   },
   {
     formationName: '3N-1-3W-1-2 D',
@@ -418,7 +418,7 @@ export const allFormations: Formation[] = [
   },
   {
     formationName: '5-2-2N-1',
-    counterAttacking: '3N-1-3W-2<br/><br/>3N-1-3W-2',
+    counterAttacking: '3N-1-3W-1-2<br/><br/>3N-1-3W-3',
     counterNeutral: '4-2-2-1-1',
     counterDefensive: '3W-2-3W-2'
   },

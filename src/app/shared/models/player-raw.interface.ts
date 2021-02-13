@@ -4,6 +4,7 @@ export interface PlayerRaw {
   name: string;
   mainPosition: number;
   positions: string;
+  specialAbilities?: string;
   reflexes: number;
   agility: number;
   anticipation: number;

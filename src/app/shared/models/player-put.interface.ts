@@ -4,6 +4,7 @@ export interface PlayerPut {
   name: string;
   mainPosition: number;
   positions: number[];
+  specialAbilites?: number[];
   reflexes: number;
   agility: number;
   anticipation: number;

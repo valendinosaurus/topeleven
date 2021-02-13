@@ -5,6 +5,7 @@ export class Player {
   name: string;
   mainPosition: number;
   positions: number[];
+  specialAbilities?: number[];
   reflexes: SkillValueObject;
   agility: SkillValueObject;
   anticipation: SkillValueObject;
